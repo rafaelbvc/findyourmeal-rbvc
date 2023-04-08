@@ -70,6 +70,74 @@ export default function Home() {
               </p>
             </div>
             {/* DESCRIPTION */}
+            {/* IMAGES */}
+            <div>
+              <h1 className="font-bold text-3xl mt-10 mb-7 border-b pb-5">
+                5 photos
+              </h1>
+              <div className="flex flex-wrap">
+                <img
+                  className="w-56 h-44 mr-1 mb-1"
+                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/47117895.jpg"
+                  alt="Imagem"
+                />
+                <img
+                  className="w-56 h-44 mr-1 mb-1"
+                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971254.jpg"
+                  alt="Imagem"
+                />
+                <img
+                  className="w-56 h-44 mr-1 mb-1"
+                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971255.jpg"
+                  alt="Imagem"
+                />
+                <img
+                  className="w-56 h-44 mr-1 mb-1"
+                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971256.jpg"
+                  alt="Imagem"
+                />
+                <img
+                  className="w-56 h-44 mr-1 mb-1"
+                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971257.jpg"
+                  alt="Imagem"
+                />
+              </div>
+            </div>
+            {/* IMAGES */}
+            {/* REVIEWS */}
+            <div>
+              <h1 className="font-bold text-3xl mt-10 mb-7 border-b pb-5">
+                What 100 people are saying
+              </h1>
+              <div>
+                {/* REVIEW CARD */}
+                <div className="border-b pb-7 mb-7">
+                  <div className="flex">
+                    <div className="w-1/6 flex flex-col items-center">
+                      <div className="rounded-full bg-blue-400 w-16 h-16 flex items-center justify-center">
+                        <h2 className="text-white text-2xl">BD</h2>
+                      </div>
+                      <p className="text-center">Bruce Dickinson</p>
+                    </div>
+                    <div className="ml-10 w-5/6">
+                      <div className="flex items-center">
+                        <div className="mt-5">
+                          <div className="flex mr-5">*****</div>
+                          <p className="text-lg font-light">
+                            Portions are good but dishes are generally run of
+                            the mill, the bright soots are the rolls and
+                            bolognese. Dishes are very overpriced for both
+                            quantity and variety.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* REVIEW CARD */}
+              </div>
+            </div>
+            {/* REVIEWS */}
           </div>
         </div>
         {/* DESCRIPTION PORTION */}
