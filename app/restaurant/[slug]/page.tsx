@@ -1,170 +1,31 @@
-import Link from "next/link";
 import NavBar from "../../components/NavBar";
+import Header from "./components/Header";
+import RestaurantNavBar from "./components/RestaurantNavBar";
+import Title from "./components/Title";
+import Ratings from "./components/Ratings";
+import Description from "./components/Description";
+import Images from "./components/Images";
+import Reviews from "./components/Reviews";
+import ReservationCardPortion from "./components/ReservationCard";
 
 export default function RestaurantDetails() {
   return (
     <main className="bg-gray-100 min-h-screen w-screen">
       <main className="max-w-screen-2xl m-auto bg-white">
-        {/* NAVBAR */}
         <NavBar />
-        {/* NAVBAR */}
-        {/* HEADER */}
-        <div className="h-96 overflow-hidden">
-          <div className="bg-center bg-gradient-to-r from-[#0f1f47] to-[#5f6984] h-full flex justify-center items-center">
-            <h1 className="text-7xl text-white capitilize text-shadow text-center">
-              Mama Shelter Downstairs (Los Angeles)
-            </h1>
-          </div>
-        </div>
-        {/* HEADER */}
-        {/* DESCRIPTION PORTION */}
+        <Header />
         <div className="flex m-auto w-2/3 justify-between items-start 0 -mt-11">
           <div className="bg-white w-[70%] rounded p-3 shadow">
-            {/* RESTAURANT NAVBAR */}
-            <nav className="flex text-reg border-b pb-2">
-              <Link href="/restaurant/mama-shelter-downstairs" className="mr-7">
-                Overview
-              </Link>
-              <Link
-                href="/restaurant/mama-shelter-downstairs/menu"
-                className="mr-7"
-              >
-                Menu
-              </Link>
-            </nav>
-            {/* RESTAURANT NAVBAR */}
-            {/* TITLE */}
-            <div className="mt-4 border-b pb-6">
-              <h1 className="front-bold text-6xl">Mama Shelter Downstairs</h1>
-            </div>
-            {/* TITLE */}
-            {/* RATING */}
-            <div className="flex items-end">
-              <div className="ratings mt-2 flex items-center">
-                <p>*****</p>
-                <div className="text-reg ml-3">4.9</div>
-                <p className="text-reg ml-4">240 Reviews</p>
-              </div>
-            </div>
-            {/* RATING */}
-            {/* DESCRIPTION */}
-            <div className="mt-4">
-              <p className="text-lg font-light">
-                Mama Shelter's RESTAURANT offers breakfast, lunch, and happy
-                hour daily. Our dinner service is open Wednesday-Sunday, 5:30-
-                10:30pm. For parties of larger than 8 please send us a message.
-                Chef Jonathan Kim provides an extensive menu featuring locally
-                grown ingredients and a seasonal menu.
-              </p>
-            </div>
-            {/* DESCRIPTION */}
-            {/* IMAGES */}
-            <div>
-              <h1 className="font-bold text-3xl mt-10 mb-7 border-b pb-5">
-                5 photos
-              </h1>
-              <div className="flex flex-wrap">
-                <img
-                  className="w-56 h-44 mr-1 mb-1"
-                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/47117895.jpg"
-                  alt="Imagem"
-                />
-                <img
-                  className="w-56 h-44 mr-1 mb-1"
-                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971254.jpg"
-                  alt="Imagem"
-                />
-                <img
-                  className="w-56 h-44 mr-1 mb-1"
-                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971255.jpg"
-                  alt="Imagem"
-                />
-                <img
-                  className="w-56 h-44 mr-1 mb-1"
-                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971256.jpg"
-                  alt="Imagem"
-                />
-                <img
-                  className="w-56 h-44 mr-1 mb-1"
-                  src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971257.jpg"
-                  alt="Imagem"
-                />
-              </div>
-            </div>
-            {/* IMAGES */}
-            {/* REVIEWS */}
-            <div>
-              <h1 className="font-bold text-3xl mt-10 mb-7 border-b pb-5">
-                What 100 people are saying
-              </h1>
-              <div>
-                {/* REVIEW CARD */}
-                <div className="border-b pb-7 mb-7">
-                  <div className="flex">
-                    <div className="w-1/6 flex flex-col items-center">
-                      <div className="rounded-full bg-blue-400 w-16 h-16 flex items-center justify-center">
-                        <h2 className="text-white text-2xl">BD</h2>
-                      </div>
-                      <p className="text-center">Bruce Dickinson</p>
-                    </div>
-                    <div className="ml-10 w-5/6">
-                      <div className="flex items-center">
-                        <div className="mt-5">
-                          <div className="flex mr-5">*****</div>
-                          <p className="text-lg font-light">
-                            Portions are good but dishes are generally run of
-                            the mill, the bright soots are the rolls and
-                            bolognese. Dishes are very overpriced for both
-                            quantity and variety.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* REVIEW CARD */}
-              </div>
-            </div>
-            {/* REVIEWS */}
+            <RestaurantNavBar />
+            <Title />
+            <Ratings />
+            <Description />
+            <Images />
+            <Reviews />
           </div>
-          {/* DESCRIPTION PORTION */}
-          {/* RESERVATION CARD PORTION */}
           <div className="w-[27%] relative">
-            <div className="fixed w-[15%] bg-white rounded p-3 shadow">
-              <div className="text-center border-b pb-2 font-bold">
-                <h4 className="mr-7 text-lg">Make a Reservation</h4>
-              </div>
-              <div className="my-3 flex flex-col">
-                <label htmlFor="">Party Size</label>
-                <select name="" className="py-3 border-b font-light" id="">
-                  <option value="">1 person</option>
-                  <option value="">2 person</option>
-                </select>
-              </div>
-              <div className="flex justify-between">
-                <div className="flex flex-col w-[48%]">
-                  <label htmlFor="">Date</label>
-                  <input
-                    type="text"
-                    className="py-3 border-b font-light w-28"
-                  />
-                </div>
-                <div className="flex flex-col w-[48%]">
-                  <label htmlFor="">Time</label>
-                  <select name="" id="" className="py-3 border-b font-light">
-                    <option value="">8:40</option>
-                    <option value="">9:40</option>
-                  </select>
-                </div>
-              </div>
-              <div className="mt-5">
-                <button className="bg-red-600 rounded w-full px-4 text-white font-bold h-16">
-                  Find a Time
-                </button>
-              </div>
-            </div>
+            <ReservationCardPortion />
           </div>
-          {/* RESERVATION CARD PORTION */}
         </div>
       </main>
     </main>
