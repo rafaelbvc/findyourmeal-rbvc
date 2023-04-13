@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+###After update to version 13.3.0 - "use client" made the app break with parse/type error, so i just changed to arrow function, that works - Rafael Vendramini.
+
+
 ## Getting Started
 
 First, run the development server:

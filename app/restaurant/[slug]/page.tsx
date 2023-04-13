@@ -1,23 +1,12 @@
 import Link from "next/link";
+import NavBar from "../../components/NavBar";
 
 export default function RestaurantDetails() {
   return (
     <main className="bg-gray-100 min-h-screen w-screen">
       <main className="max-w-screen-2xl m-auto bg-white">
         {/* NAVBAR */}
-        <nav className="bg-white p-2 flex justify-between">
-          <Link href="/" className="font-bold text-gray-700 text-2xl">
-            OpenTable{" "}
-          </Link>
-          <div>
-            <div className="flex">
-              <button className="bg-blue-400 text-white border p-1 px-4 rounded mr-3">
-                Sing in
-              </button>
-              <button className="border p-1 px-4 rounded">Sing up</button>
-            </div>
-          </div>
-        </nav>
+        <NavBar />
         {/* NAVBAR */}
         {/* HEADER */}
         <div className="h-96 overflow-hidden">
@@ -36,7 +25,10 @@ export default function RestaurantDetails() {
               <Link href="/restaurant/mama-shelter-downstairs" className="mr-7">
                 Overview
               </Link>
-              <Link href="/restaurant/mama-shelter-downstairs/menu" className="mr-7">
+              <Link
+                href="/restaurant/mama-shelter-downstairs/menu"
+                className="mr-7"
+              >
                 Menu
               </Link>
             </nav>
