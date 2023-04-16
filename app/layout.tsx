@@ -12,7 +12,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
           name="OpenTable Clone"
           content="A OpenTable clone by Rafael Vendramini"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icons/favicon.ico" />
       </head>
       <body>
         <main className="bg-gray-100 min-h-screen w-screen">
