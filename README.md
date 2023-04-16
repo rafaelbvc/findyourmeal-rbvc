@@ -3,6 +3,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## After update to version 13.3.0 - "use client" made the app break with parse/type error, so i just changed to arrow function, that works - Rafael Vendramini!
 ## Version 13.3.0 head.t/jsx deprecated, tags header with metadada above body component works fine - Solution: Migrate the metada and main estructure to the layout.j(t)sx - Rafael Vendramini!
 
+## We can change the nested components tile, statically, this way:
+                        export const metadata = {
+                          title: "your title"
+                        }                       
+After close export function at layout page
+
 
 ## Getting Started
 
