@@ -11,7 +11,6 @@ export default function Images() {
         <img
           className="w-56 h-44 mr-1 mb-1"
           src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971254.jpg"
-          alt="Imagem"
         />
         <img
           className="w-56 h-44 mr-1 mb-1"

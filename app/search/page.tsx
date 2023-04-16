@@ -1,10 +1,10 @@
-import Header from "./components/Header";
+import Header from "../components/Header";
 import RestaurantCard from "./components/RestaurantCard";
 import SearchSideBar from "./components/SearchSideBar";
 
 export default function Search() {
   return (
-    <main>
+    <>
       <Header />
       <div className="flex py-4 m-auto w-2/3 justify-between items-start">
         <SearchSideBar />
@@ -12,6 +12,6 @@ export default function Search() {
           <RestaurantCard />
         </div>
       </div>
-    </main>
+    </>
   );
 }

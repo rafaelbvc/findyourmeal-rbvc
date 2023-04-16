@@ -1,20 +1,26 @@
+import NavBar from "../components/NavBar";
 import "../globals.css";
 
-export default function SearchLayout({ children }: { children: React.ReactNode }) {
+export default function SearchLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <head>
-        <title>Search - OpenTable - Clone</title>
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta
-          name="OpenTable Clone"
-          content="A OpenTable clone by Rafael Vendramini"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
+    <>
       <body>
-        <div>{children}</div>
+        <main className="bg-gray-100 min-h-screen w-screen">
+          <main className="max-w-screen-2xl m-auto bg-white">
+            <NavBar/>         
+            <div>{children}</div>
+          </main>
+        </main>
       </body>
-    </html>
+    </>
   );
+}
+
+export const metadata = {
+  title: "Search Restaurants | OpenTable | Clone"
+
 }
