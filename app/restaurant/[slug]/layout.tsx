@@ -1,4 +1,4 @@
-import RestaurantHeader from "./components/RestaurantHeader";
+import RestaurantHeader from "./components/restaurantHeader";
 
 
 function RestaurantLayout({ children }: { children: React.ReactNode }) {
@@ -6,7 +6,7 @@ function RestaurantLayout({ children }: { children: React.ReactNode }) {
     <>
       <main>
         <RestaurantHeader />
-        <div className="flx m-auto w-2/3 justify-between items-start 0 -mt-11">
+        <div className="flex m-auto w-2/3 justify-between items-start 0 -mt-11">
           {children}
         </div>
       </main>

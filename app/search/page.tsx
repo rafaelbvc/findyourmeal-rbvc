@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/header";
 import RestaurantCard from "./components/RestaurantCard";
 import SearchSideBar from "./components/SearchSideBar";
 

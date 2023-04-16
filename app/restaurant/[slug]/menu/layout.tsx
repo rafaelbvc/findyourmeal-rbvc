@@ -1,5 +1,9 @@
 function RestaurantMenuLayout({ children }: { children: React.ReactNode }) {
-  return <div>{children}</div>;
+  return (
+    <>
+        {children}
+    </>
+  );
 }
 
 export default RestaurantMenuLayout;

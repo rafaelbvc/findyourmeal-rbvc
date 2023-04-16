@@ -1,4 +1,6 @@
-import SearchBar from "./SearchBar";
+import SearchBar from "./searchBar";
+
+
 
 const Header = () => {
 

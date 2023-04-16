@@ -1,10 +1,11 @@
-import Description from "./components/Description";
-import Images from "./components/Images";
-import Ratings from "./components/Ratings";
-import ReservationCardPortion from "./components/ReservationCard";
-import RestaurantNavBar from "./components/RestaurantNavBar";
-import Reviews from "./components/Reviews";
-import Title from "./components/Title";
+import Description from "./components/description";
+import Images from "./components/images";
+import Ratings from "./components/ratings";
+import ReservationCard from "./components/reservationCard";
+import RestaurantNavBar from "./components/restaurantNavBar";
+import Reviews from "./components/reviews";
+import Title from "./components/title";
+
 
 function RestaurantDetails() {
   return (
@@ -18,7 +19,7 @@ function RestaurantDetails() {
         <Reviews />
       </div>
       <div className="w-[27%] relative text-reg">
-        <ReservationCardPortion />
+        <ReservationCard />
       </div>
     </>
   );

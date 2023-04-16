@@ -1,5 +1,5 @@
-import Menu from "../components/Menu";
-import RestaurantNavBar from "../components/RestaurantNavBar";
+import Menu from "../components/menu";
+import RestaurantNavBar from "../components/restaurantNavBar";
 
 export default function RestaurantMenu() {
   return (

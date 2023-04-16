@@ -1,5 +1,5 @@
-import Header from "./components/Header";
-import RestaurantCard from "./components/RestaurantCard";
+import Header from "./components/header";
+import RestaurantCard from "./components/restaurantCard";
 
 const Home = () => {
   return (

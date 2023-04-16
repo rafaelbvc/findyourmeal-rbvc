@@ -1,4 +1,6 @@
-import MenuCard from "./MenuCard";
+import MenuCard from "./menuCard";
+
+
 
 export default function Menu() {
   return (

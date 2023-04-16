@@ -1,4 +1,5 @@
-import NavBar from "./components/NavBar";
+
+import NavBar from "./components/navBar";
 import "./globals.css";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
