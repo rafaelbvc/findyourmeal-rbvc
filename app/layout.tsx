@@ -1,8 +1,8 @@
-
 import NavBar from "./components/navBar";
 import "./globals.css";
 
-function RootLayout({ children }: { children: React.ReactNode }) {
+async function RootLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <html lang="en">
       <head>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { RestaurantCardType } from "../page";
+import  RestaurantCardType  from "../interfaces/restaurantCardType";
 import Price from "./price";
 
 interface Props {
