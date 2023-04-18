@@ -6,39 +6,8 @@ import ReservationCard from "./components/reservationCard";
 import RestaurantNavBar from "./components/restaurantNavBar";
 import Reviews from "./components/reviews";
 import Title from "./components/title";
+import { fetchRestaurantBySlug } from "../../services/fetchRestaurantsBySlug";
 
-interface FetchRestaurantBySlug {
-  id: number;
-  name: string;
-  images: string[];
-  description: string;
-  slug: string;
-}
-
-const prisma = new PrismaClient();
-
-const fetchRestaurantBySlug = async (
-  slug: string
-): Promise<FetchRestaurantBySlug> => {
-  const restaurant = await prisma.restaurant.findUnique({
-    where: {
-      slug,
-    },
-    select: {
-      id: true,
-      name: true,
-      images: true,
-      description: true,
-      slug: true,
-    },
-  });
-
-  if (!restaurant) {
-    throw new Error("null");
-  }
-
-  return restaurant;
-};
 
 async function RestaurantDetails({ params }: { params: { slug: string } }) {
 

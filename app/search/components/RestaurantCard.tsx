@@ -1,10 +1,11 @@
 import Link from "next/link";
 
 const RestaurantCard = () => {
+
   return (
     <div className="border-b flex pb-5">
       <img
-        src="https://resizer.otstatic.com/v2/photos/xlarge/2/49971260.jpg"
+        src="for now"
         alt="Image"
         className="w-44 rounded"
       />
