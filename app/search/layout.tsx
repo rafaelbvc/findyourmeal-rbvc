@@ -1,11 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import NavBar from "../components/navBar";
 import "../globals.css";
 
-
-const prisma = new PrismaClient();
-
-// const fetch
 
 export default function SearchLayout({
   children,

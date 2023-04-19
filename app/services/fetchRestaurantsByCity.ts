@@ -12,7 +12,7 @@ export const fetchRestaurantsByCity = async (city: string) => {
   };
 
   if (!city) return prisma.restaurant.findMany({ select });
-  const restaurants = await prisma.restaurant.findMany({
+  return prisma.restaurant.findMany({
     where: {
       location: {
         name: {
@@ -20,6 +20,6 @@ export const fetchRestaurantsByCity = async (city: string) => {
         },
       },
     },
+    select,
   });
-  return restaurants;
 };
