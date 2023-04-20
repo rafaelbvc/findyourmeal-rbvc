@@ -1,13 +1,7 @@
 import { prisma } from "../utils/constants"
 
-const fetchLocations = async() => {
-    const locations = await prisma.location.findMany(
-{        select: {
-            id: true,
-            name: true,
-        }}
-    )
+export const fetchLocations = async() => {
+    const locations = await prisma.location.findMany()
     return locations
 }
 
-export default fetchLocations
