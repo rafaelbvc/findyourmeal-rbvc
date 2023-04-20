@@ -1,6 +1,6 @@
 import { prisma } from "../utils/constants";
 
-export const fetchRestaurantsByCity = async (city: string | undefined,) => {
+export const fetchRestaurantsByCuisine = async (cuisine: string | undefined ) => {
   const select = {
     id: true,
     name: true,
@@ -11,13 +11,13 @@ export const fetchRestaurantsByCity = async (city: string | undefined,) => {
     slug: true,
   };
 
-  if (!city) return prisma.restaurant.findMany({ select });
+  if (!cuisine) return prisma.restaurant.findMany({ select });
   return prisma.restaurant.findMany({
     where: {
-      location: {
+      cuisine: {
         name: {
-          equals: city.toLocaleLowerCase(),
-        },
+            equals: cuisine,
+        }
       },
     },
     select,
