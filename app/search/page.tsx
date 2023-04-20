@@ -1,14 +1,15 @@
 import Header from "../components/header";
 import RestaurantCard from "./components/restaurantSearchCard";
-import { fetchRestaurantsByCity } from "../services/fetchRestaurantsByCity";
+import { fetchRestaurantsByFilters } from "../services/fetchRestaurantsByFilters";
 import SearchSideBar from "./components/searchSideBar";
 import {fetchLocations} from "../services/fetchLocations";
 import {fetchCuisines} from "../services/fetchCuisines";
 import { PRICE } from ".prisma/client";
+import { SearchParamType } from "../interfaces/searchParamType";
 
 
-async function Search({ searchParams }: { searchParams: { city?: string, cuisine?: string, price?: PRICE }; }) {
-  const restaurants = await fetchRestaurantsByCity(searchParams.city);
+async function Search({ searchParams }: { searchParams: SearchParamType; }) {
+  const restaurants = await fetchRestaurantsByFilters(searchParams);
   const location = await fetchLocations();
   const cuisine = await fetchCuisines();
   return (

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { PRICE, Location, Cuisine } from ".prisma/client";
-import { fetchRestaurantsByCuisine } from "../../services/fetchRestaurantsByCuisine";
 
 function SearchSideBar({
   locations,
@@ -12,9 +11,9 @@ function SearchSideBar({
   searchParams: { city?: string; cuisine?: string; price?: PRICE };
 }) {
   const prices = [
-    { price: PRICE.CHEAP, label: "$", className: "border w-full text-reg font-light rounded-l text-center p-2 " },
-    { price: PRICE.REGULAR, label: "$$", className: "border w-full text-reg font-light text-center p-2" },
-    { price: PRICE.EXPENSIVE, label: "$$$", className: "border w-full text-reg font-light rounded-r text-center p-2" },
+    { price: PRICE.CHEAP, label: "$", className: "border w-full text-reg font-light rounded-l p-2 text-center" },
+    { price: PRICE.REGULAR, label: "$$", className: "border w-full text-reg font-light  p-2 text-center" },
+    { price: PRICE.EXPENSIVE, label: "$$$", className: "border w-full text-reg font-light rounded-r p-2 text-center" },
   ];
 
   return (
