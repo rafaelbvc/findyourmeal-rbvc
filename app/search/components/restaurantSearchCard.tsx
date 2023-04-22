@@ -1,16 +1,24 @@
 import Link from "next/link";
 import Price from "../../components/price";
-import RestaurantCardType from "../../interfaces/restaurantCardType";
+import { Cuisine, PRICE, Review, Location } from "@prisma/client";
 
-const RestaurantSearchCard = ({restaurant}: {restaurant: RestaurantCardType }) => {
+type RestaurantSearchCartdType = {
+  restaurant: {
+    name: string;
+    price: PRICE;
+    slug: string;
+    id: number;
+    reviews: Review[];
+    main_image: string;
+    cuisine: Cuisine;
+    location: Location;
+  };
+};
 
+const RestaurantSearchCard = ({restaurant}: RestaurantSearchCartdType) => {
   return (
     <div className="border-b flex pb-5 ml-4">
-      <img
-        src={restaurant.main_image}
-        alt="Image"
-        className="w-44 h-36 rounded"
-      />
+      <img src={restaurant.main_image} alt="Image" className="w-44 h-36 rounded" />
       <div className="pl-5">
         <h2 className="text-3xl">{restaurant.name}</h2>
         <div className="flex items-start">
@@ -19,7 +27,7 @@ const RestaurantSearchCard = ({restaurant}: {restaurant: RestaurantCardType }) =
         </div>
         <div className="mb-9">
           <div className="font-light flex text-reg">
-            <Price price={restaurant.price}/>
+            <Price price={restaurant.price} />
             <p className="mr-4 capitalize">{restaurant.cuisine.name}</p>
             <p className="mr-4 capitalize">{restaurant.location.name}</p>
           </div>

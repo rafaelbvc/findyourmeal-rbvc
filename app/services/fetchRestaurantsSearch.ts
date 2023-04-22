@@ -1,4 +1,4 @@
-import { prisma } from "../utils/constants";
+import { prisma } from "../../utils/constants";
 import RestaurantCardType from "../interfaces/restaurantCardType";
 
 export const fetchRestaurantsSearch = async (): Promise<RestaurantCardType[]> => {
@@ -10,7 +10,8 @@ export const fetchRestaurantsSearch = async (): Promise<RestaurantCardType[]> =>
         cuisine: true,
         location: true, 
         price: true,
-        slug: true
+        reviews: true,
+        slug: true,
       },
     });
     return restaurants;

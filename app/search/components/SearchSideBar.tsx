@@ -11,9 +11,21 @@ function SearchSideBar({
   searchParams: { city?: string; cuisine?: string; price?: PRICE };
 }) {
   const prices = [
-    { price: PRICE.CHEAP, label: "$", className: "border w-full text-reg font-light rounded-l p-2 text-center" },
-    { price: PRICE.REGULAR, label: "$$", className: "border w-full text-reg font-light  p-2 text-center" },
-    { price: PRICE.EXPENSIVE, label: "$$$", className: "border w-full text-reg font-light rounded-r p-2 text-center" },
+    {
+      price: PRICE.CHEAP,
+      label: "$",
+      className: "border w-full text-reg font-light rounded-l p-2 text-center",
+    },
+    {
+      price: PRICE.REGULAR,
+      label: "$$",
+      className: "border w-full text-reg font-light  p-2 text-center",
+    },
+    {
+      price: PRICE.EXPENSIVE,
+      label: "$$$",
+      className: "border w-full text-reg font-light rounded-r p-2 text-center",
+    },
   ];
 
   return (
@@ -57,13 +69,13 @@ function SearchSideBar({
       <div className="mt-3 pb-4">
         <h1 className="mb-2">Price</h1>
         <div className="flex">
-          {prices.map(({price, label, className}) => (
+          {prices.map(({ price, label, className }) => (
             <Link
               href={{
                 pathname: "search/",
                 query: {
                   ...searchParams,
-                  price,                  
+                  price,
                 },
               }}
               className={className}

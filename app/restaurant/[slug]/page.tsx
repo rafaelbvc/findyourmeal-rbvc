@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import Description from "./components/description";
 import Images from "./components/images";
 import Ratings from "./components/ratings";
@@ -9,7 +8,7 @@ import Title from "./components/title";
 import { fetchRestaurantBySlug } from "../../services/fetchRestaurantsBySlug";
 
 
-async function RestaurantDetails({ params }: { params: { slug: string } }) {
+async function RestaurantDetails({ params }: { params: {slug: string}}) {
 
 
   const restaurant = await fetchRestaurantBySlug(params.slug);
@@ -19,7 +18,7 @@ async function RestaurantDetails({ params }: { params: { slug: string } }) {
       <div className="bg-white w-[70%] rounded p-3 shadow">
         <RestaurantNavBar  slug={restaurant.slug}/>
         <Title name={restaurant.name}/>
-        <Ratings />
+        <Ratings reviews={restaurant.reviews}/>
         <Description description={restaurant.description}/>
         <Images images={restaurant.images}/>
         <Reviews />
