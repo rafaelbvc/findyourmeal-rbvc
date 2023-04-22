@@ -1,4 +1,4 @@
-import { prisma } from "../utils/constants";
+import { prisma } from "../../utils/constants";
 
 export const fetchRestaurantsByCity = async (city: string | undefined,) => {
   const select = {
@@ -9,6 +9,7 @@ export const fetchRestaurantsByCity = async (city: string | undefined,) => {
     cuisine: true,
     location: true,
     slug: true,
+    reviews: true,
   };
 
   if (!city) return prisma.restaurant.findMany({ select });

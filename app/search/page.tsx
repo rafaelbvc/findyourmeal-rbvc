@@ -1,17 +1,19 @@
 import Header from "../components/header";
-import RestaurantCard from "./components/restaurantSearchCard";
 import { fetchRestaurantsByFilters } from "../services/fetchRestaurantsByFilters";
 import SearchSideBar from "./components/searchSideBar";
 import {fetchLocations} from "../services/fetchLocations";
 import {fetchCuisines} from "../services/fetchCuisines";
-import { PRICE } from ".prisma/client";
-import { SearchParamType } from "../interfaces/searchParamType";
+import { SearchParamsType } from "../interfaces/searchParamsType";
+import RestaurantSearchCard from "./components/restaurantSearchCard";
+import { fetchRestaurantsByCity } from "../services/fetchRestaurantsByCity";
 
 
-async function Search({ searchParams }: { searchParams: SearchParamType; }) {
+async function Search({ searchParams }: { searchParams: SearchParamsType;}) {
   const restaurants = await fetchRestaurantsByFilters(searchParams);
   const location = await fetchLocations();
   const cuisine = await fetchCuisines();
+  const fetchRestaurants = await fetchRestaurantsByCity(searchParams.city);
+
   return (
     <main>
       <Header />
@@ -20,7 +22,7 @@ async function Search({ searchParams }: { searchParams: SearchParamType; }) {
         <div className="w-5/6">
           {restaurants.length ? (
             restaurants.map((restaurant) => (
-              <RestaurantCard key={restaurant.id} restaurant={restaurant}/>
+              <RestaurantSearchCard key={restaurant.id} restaurant={restaurant}/>
             ))
           ) : (
             <p>Sorry, we found no restaurants in this area</p>

@@ -1,6 +1,6 @@
 import { PRICE } from "@prisma/client";
 
-export interface SearchParamType {
+export interface SearchParamsType {
   city?: string | undefined,
   cuisine?: string | undefined,
   price?: PRICE,
