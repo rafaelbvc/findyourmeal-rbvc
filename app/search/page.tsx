@@ -5,14 +5,12 @@ import {fetchLocations} from "../services/fetchLocations";
 import {fetchCuisines} from "../services/fetchCuisines";
 import { SearchParamsType } from "../interfaces/searchParamsType";
 import RestaurantSearchCard from "./components/restaurantSearchCard";
-import { fetchRestaurantsByCity } from "../services/fetchRestaurantsByCity";
 
 
 async function Search({ searchParams }: { searchParams: SearchParamsType;}) {
   const restaurants = await fetchRestaurantsByFilters(searchParams);
   const location = await fetchLocations();
   const cuisine = await fetchCuisines();
-  const fetchRestaurants = await fetchRestaurantsByCity(searchParams.city);
 
   return (
     <main>
