@@ -1,5 +1,6 @@
 import FetchRestaurantBySlug from "../interfaces/restaurantBySlugType";
 import { prisma } from "../../utils/constants";
+import { Review } from "@prisma/client";
 
 export const fetchRestaurantBySlug = async (
     slug: string,

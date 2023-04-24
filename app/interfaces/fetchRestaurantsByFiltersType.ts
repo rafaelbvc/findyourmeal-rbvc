@@ -1,11 +1,12 @@
-import { Cuisine, Location } from "@prisma/client";
+import { Cuisine, Location, Review, PRICE } from "@prisma/client";
 
-export interface RestaurantSearchCartdType {
+export interface FetchRestaurantsByFiltersType {
   id: number;
   name: string;
   main_image: string;
-  price: string;
+  price: PRICE;
   cuisine: Cuisine;
   location: Location;
   slug: string;
+  reviews: Review[];
 }
