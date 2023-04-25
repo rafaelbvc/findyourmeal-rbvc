@@ -1,36 +1,39 @@
-import React from "react";
+import { Review } from "@prisma/client";
+
 
 type ReviewCardType = {
-  textArea: string;
-  ratingRange?: number;
-  firstName: string;
-  lastName: string;
-};
+  review: {
+    first_name: string,
+    last_name: string,
+    text: string,
+    rating: number
+  }
 
-function ReviewCard(props: ReviewCardType) {
-  const { textArea, ratingRange, firstName, lastName } = props;
+}
 
+function ReviewCard({review}: ReviewCardType) {
+  
   return (
     <div className="border-b pb-7 mb-7">
       <div className="flex">
         <div className="w-1/6 flex flex-col items-center">
           <div className="rounded-full bg-blue-400 w-16 h-16 flex items-center justify-center">
-            <h2 className="text-white text-2xl">{`${firstName.slice(
+            <h2 className="text-white text-2xl">{`${review.first_name.slice(
               0,
               1
-            )} ${lastName.slice(0, 1)}`}</h2>
+            )} ${review.last_name.slice(0, 1)}`}</h2>
           </div>
           <p className="text-center">
             {" "}
-            {firstName} <p />
-            {lastName}
+            {review.first_name} <p />
+            {review.last_name}
           </p>
         </div>
         <div className="ml-10 w-5/6">
           <div className="flex items-center">
             <div className="mt-5">
-              <div className="flex mr-5">calculateTODO</div>
-              <p className="text-lg font-light">{textArea}</p>
+              <div className="flex mr-5">{review.rating}TODO</div>
+              <p className="text-lg font-light">{review.text}</p>
             </div>
           </div>
         </div>

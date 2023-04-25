@@ -22,7 +22,7 @@ async function RestaurantDetails({ params }: { params: {slug: string}}) {
         <Ratings reviews={restaurant.reviews}/>
         <Description description={restaurant.description}/>
         <Images images={restaurant.images}/>
-        {/* <Reviews reviews={restaurant.reviews}/> */}
+        <Reviews reviews={restaurant.reviews}/>
       </div>
       <div className="w-[27%] relative text-reg">
         <ReservationCard />
