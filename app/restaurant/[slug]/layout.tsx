@@ -1,7 +1,18 @@
 import RestaurantHeader from "./components/restaurantHeader";
 
 
+export function generateMetadata({params}:{params: {slug: string}}){
+  const pageName = params.slug.split("-"); 
+  for (let i = 0; i < pageName.length; i++){
+    pageName[i] = pageName[i][0].toUpperCase() + pageName[i].substring(1)
+  }
+  const sPageName = `${pageName.join(" ")}`
+  return {title: sPageName}
+}
+
+
 function RestaurantLayout({ children, params }: { children: React.ReactNode; params: {slug: string} }) {
+
   return (
     <>
       <main>
@@ -15,8 +26,3 @@ function RestaurantLayout({ children, params }: { children: React.ReactNode; par
 }
 
 export default RestaurantLayout;
-
-export const metadata = {
-  title: "Mama Shelter Downstairs | OpenTable | Clone"
-
-}

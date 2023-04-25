@@ -4,12 +4,6 @@ import RestaurantNavBar from "../components/restaurantNavBar";
 
 const prisma = new PrismaClient();
 
-// export interface MenuCard {
-//   name: string;
-//   description: string;
-//   price: string;
-// }
-
 const fetchRestaurantMenu = async (slug: string) => {
   const restaurant = await prisma.restaurant.findUnique({
     where: {

@@ -1,18 +1,13 @@
-import { Review } from "@prisma/client";
-
-
 type ReviewCardType = {
   review: {
-    first_name: string,
-    last_name: string,
-    text: string,
-    rating: number
-  }
+    first_name: string;
+    last_name: string;
+    text: string;
+    rating: number;
+  };
+};
 
-}
-
-function ReviewCard({review}: ReviewCardType) {
-  
+function ReviewCard({ review }: ReviewCardType) {
   return (
     <div className="border-b pb-7 mb-7">
       <div className="flex">
@@ -32,7 +27,15 @@ function ReviewCard({review}: ReviewCardType) {
         <div className="ml-10 w-5/6">
           <div className="flex items-center">
             <div className="mt-5">
-              <div className="flex mr-5">{review.rating}TODO</div>
+              <div className="flex mr-5">
+                {review.rating === 5
+                  ? "Awesome"
+                  : review.rating === 4
+                  ? "Good"
+                  : review.rating === 3
+                  ? "Average"
+                  : ""}
+              </div>
               <p className="text-lg font-light">{review.text}</p>
             </div>
           </div>

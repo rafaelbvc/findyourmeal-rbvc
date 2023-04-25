@@ -21,12 +21,12 @@ export default function RestaurantCard({ restaurant }: Props) {
             
           </div>
         </div>
-        <div className="flex text-reg font-light capitalize">
+        <div className="flex text-reg font-light capitalize ml-1">
           <p className=" mr-3">{restaurant.cuisine.name}</p>
           <Price price={restaurant.price}/>
           <p>{restaurant.location.name}</p>
         </div>
-        <p className="text-sm mt-1 font-bold">Booked 29 times today</p>
+        <p className="text-sm mt-1 ml-1 font-bold">Booked 29 times today</p>
       </Link>
     </div>
   );
