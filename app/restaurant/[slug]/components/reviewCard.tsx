@@ -1,3 +1,6 @@
+import { calculateReviewRatingAverage } from "../../../../utils/calculateReviewRatingAverage";
+import Stars from "../../../components/stars";
+
 type ReviewCardType = {
   review: {
     first_name: string;
@@ -27,14 +30,8 @@ function ReviewCard({ review }: ReviewCardType) {
         <div className="ml-10 w-5/6">
           <div className="flex items-center">
             <div className="mt-5">
-              <div className="flex mr-5">
-                {review.rating === 5
-                  ? "Awesome"
-                  : review.rating === 4
-                  ? "Good"
-                  : review.rating === 3
-                  ? "Average"
-                  : ""}
+              <div className="flex mr-5 mb-2">
+                {Stars(review.rating)}
               </div>
               <p className="text-lg font-light">{review.text}</p>
             </div>
