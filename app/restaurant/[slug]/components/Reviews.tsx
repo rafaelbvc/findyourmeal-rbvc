@@ -9,7 +9,7 @@ export default function Reviews({ reviews }: { reviews: Review[] }) {
         {reviews.length >= 2
           ? `What ${reviews.length} people are saying`
           : reviews.length === 1
-          ? `What ${reviews.length} people saying`
+          ? `What ${reviews.length} person saying`
           : ""}
       </h1>
       {reviews.map((review) => (
