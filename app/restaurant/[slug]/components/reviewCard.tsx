@@ -1,4 +1,3 @@
-import { calculateReviewRatingAverage } from "../../../../utils/calculateReviewRatingAverage";
 import Stars from "../../../components/stars";
 
 type ReviewCardType = {
