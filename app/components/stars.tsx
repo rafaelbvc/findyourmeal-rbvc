@@ -2,7 +2,6 @@ import Image from "next/image";
 import FullStar from "../../public/stars/full-star.png";
 import HalfStar from "../../public/stars/half-star.png";
 import EmptyStar from "../../public/stars/empty-star.png";
-import { calculateReviewRatingAverage } from "../../utils/calculateReviewRatingAverage";
 
 function Stars(reviews: number ) {
 

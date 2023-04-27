@@ -12,6 +12,7 @@ async function RestaurantDetails({ params }: { params: {slug: string}}) {
 
 
   const restaurant = await fetchRestaurantBySlug(params.slug);
+  
 
 
   return (
