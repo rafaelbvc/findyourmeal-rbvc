@@ -1,6 +1,5 @@
 import FetchRestaurantBySlug from "../interfaces/restaurantBySlugType";
 import { prisma } from "../../utils/constants";
-import { Review } from "@prisma/client";
 
 export const fetchRestaurantBySlug = async (
     slug: string,
@@ -20,7 +19,7 @@ export const fetchRestaurantBySlug = async (
     });
   
     if (!restaurant) {
-      throw new Error("null");
+      throw new Error("Page not found");
     }
   
     return restaurant;
