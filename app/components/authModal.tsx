@@ -21,8 +21,6 @@ const style = {
 
 function AuthModal({ isSignin }: { isSignin: boolean }) {
   const [open, setOpen] = useState(false);
-  //   const handleOpen = () => setOpen(true);
-  //   const handleClose = () => setOpen(false);
 
   const handleSigninSignup = (signInContent: string, signUpContent: string) => {
     return isSignin ? signInContent : signUpContent;
@@ -36,7 +34,7 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
   };
 
   const [inputData, setInputData] = useState({
-    firstName: "",
+    firstName:"",
     lastName: "",
     email: "",
     phone: "",

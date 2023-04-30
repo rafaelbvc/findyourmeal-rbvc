@@ -1,6 +1,6 @@
 import { prisma } from "../../utils/constants";
 
-export const fetchRestaurantsByCity = async (city: string | undefined,) => {
+export const FetchRestaurantsByCity = async (city: string | undefined,) => {
   const select = {
     id: true,
     name: true,

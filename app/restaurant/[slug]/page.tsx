@@ -1,3 +1,4 @@
+import { FetchRestaurantBySlug } from "../../services/fetchRestaurantsBySlug";
 import Description from "./components/description";
 import Images from "./components/images";
 import Ratings from "./components/ratings";
@@ -5,13 +6,13 @@ import ReservationCard from "./components/reservationCard";
 import RestaurantNavBar from "./components/restaurantNavBar";
 import Reviews from "./components/reviews";
 import Title from "./components/title";
-import { fetchRestaurantBySlug } from "../../services/fetchRestaurantsBySlug";
+
 
 
 async function RestaurantDetails({ params }: { params: {slug: string}}) {
 
 
-  const restaurant = await fetchRestaurantBySlug(params.slug);
+  const restaurant = await FetchRestaurantBySlug(params.slug);
   
 
 

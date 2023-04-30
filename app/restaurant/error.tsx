@@ -12,8 +12,8 @@ function ErrorRestaurant({ error }: { error: Error }) {
           Well, this is embarrassing...
         </h3>
         <p className="text-lg font-bold text-center mt-2">{error.message}</p>
-        <p className="mt-6 text-regular font-light text-center">
-          Error Code: 400.
+        <p className="mt-6 text-regular font-semibold  text-center">
+          Maybe try another OpenTable Restaurant?
         </p>
       </div>
     </div>

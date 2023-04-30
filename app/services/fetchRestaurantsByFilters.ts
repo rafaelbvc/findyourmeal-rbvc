@@ -1,7 +1,8 @@
 import { prisma } from "../../utils/constants";
 import { SearchParamsType } from "../interfaces/searchParamsType";
 
-export const fetchRestaurantsByFilters = async (
+
+export const  FetchRestaurantsByFilters = async(
   searchParams: SearchParamsType
 ) => {
   const querySearch = await prisma.restaurant.findMany({
@@ -35,6 +36,7 @@ export const fetchRestaurantsByFilters = async (
     throw new Error("NULL");
   }
   return querySearch
+
 
 
 

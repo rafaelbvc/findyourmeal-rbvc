@@ -1,7 +1,7 @@
 import FetchRestaurantBySlug from "../interfaces/restaurantBySlugType";
 import { prisma } from "../../utils/constants";
 
-export const fetchRestaurantBySlug = async (
+export const FetchRestaurantBySlug = async (
     slug: string,
   ): Promise<FetchRestaurantBySlug> => {
     const restaurant = await prisma.restaurant.findUnique({

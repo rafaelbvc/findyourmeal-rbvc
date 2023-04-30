@@ -1,10 +1,10 @@
 import Header from "./components/header";
 import RestaurantCard from "./components/restaurantCard";
-import { fetchRestaurants } from "./services/fetchRestaurants";
+import { FetchRestaurants } from "./services/fetchRestaurants";
 
 const Home = async () => {
 
-  const restaurants = await fetchRestaurants();
+  const restaurants = await FetchRestaurants();
 
   return (
     <main>
