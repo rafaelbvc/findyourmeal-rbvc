@@ -32,15 +32,9 @@ function LoadingSearch() {
           </div>
         </div>
         <div className="w-5/6">
-        {[1, 2, 3, 4].map((itens) => (
-          <div
-            key={itens}
-            className="overflow-hidden animate-pulse bg-slate-200 mb-3 cursor-pointer w-120 h-60 ml-6 border rounded"
-          ></div>
-        ))}
+          <div className="overflow-hidden animate-pulse bg-slate-200 mb-3 cursor-pointer w-120 h-60 ml-6 border rounded"></div>
+        </div>
       </div>
-      </div>
-
     </>
   );
 }

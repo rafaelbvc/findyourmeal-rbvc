@@ -10,6 +10,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 After close export function at layout page
 
 
+
 ## Getting Started
 
 First, run the development server:

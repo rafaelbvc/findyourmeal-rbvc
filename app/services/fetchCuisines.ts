@@ -1,6 +1,6 @@
 import { prisma } from "../../utils/constants"
 
-export const fetchCuisines = async() => {
+export const FetchCuisines = async() => {
     const cuisines = await prisma.cuisine.findMany()
     return cuisines
 }
