@@ -61,8 +61,9 @@ export default async function SignInHandler(
       .setExpirationTime("24h")
       .sign(secret);
 
+      
     return res.status(200).json({
-      token: token,
+      token,
     });
 
   }
