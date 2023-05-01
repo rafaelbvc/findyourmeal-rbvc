@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import Menu from "../components/menu";
 import RestaurantNavBar from "../components/restaurantNavBar";
 
+
 const prisma = new PrismaClient();
 
 const fetchRestaurantMenu = async (slug: string) => {
