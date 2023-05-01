@@ -91,7 +91,7 @@ export default async function SignUpHandler(
       .sign(secret);
 
     return res.status(200).json({
-      token: token,
+      token,
     });
   }
   return res.status(404).json("Can`t resolve the request");
