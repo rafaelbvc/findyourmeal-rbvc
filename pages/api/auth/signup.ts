@@ -1,7 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import validator from "validator";
+import { prisma } from "../../../utils/constants";
+import bcrypt from "bcrypt";
+import * as jose from "jose";
 
-export default async function AuthHandler(
+export default async function SignUpHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -53,8 +56,43 @@ export default async function AuthHandler(
       return res.status(400).json({ errorMessage: errors[0] });
     }
 
-    res.status(200).json({
-      data: "Success",
+    const userEmailExist = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    if (userEmailExist) {
+      return res
+        .status(400)
+        .json("Email already associate with another account");
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await prisma.user.create({
+      data: {
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        phone,
+        city,
+        password: hashedPassword,
+      },
+    });
+
+    const alg = "HS256";
+
+    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+
+    const token = await new jose.SignJWT({ email: user.email })
+      .setProtectedHeader({ alg })
+      .setExpirationTime("24h")
+      .sign(secret);
+
+    return res.status(200).json({
+      token: token,
     });
   }
+  return res.status(404).json("Can`t resolve the request");
 }
