@@ -13,6 +13,8 @@ export function generateMetadata({params}:{params: {slug: string}}){
 
 function RestaurantLayout({ children, params }: { children: React.ReactNode; params: {slug: string} }) {
 
+  const propHeaderTitle = generateMetadata
+
   return (
       <>
         <RestaurantHeader name={params.slug}/>

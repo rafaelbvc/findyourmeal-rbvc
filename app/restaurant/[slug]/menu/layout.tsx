@@ -1,4 +1,8 @@
-function RestaurantMenuLayout({ children }: { children: React.ReactNode }) {
+
+
+
+async function RestaurantMenuLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <>
         {children}
@@ -8,6 +12,5 @@ function RestaurantMenuLayout({ children }: { children: React.ReactNode }) {
 
 export default RestaurantMenuLayout;
 
-export const metadata = {
-  title: "Restaurant Menu | OpenTable | Clone",
-};
+
+
