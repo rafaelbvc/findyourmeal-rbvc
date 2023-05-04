@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import {prisma} from "../../../utils/constants";
-import * as jose from "jose";
 import jwt from "jsonwebtoken";
 
 export async function middleware(

@@ -1,5 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
-import {prisma} from "./utils/constants";
+import { NextRequest, NextResponse } from "next/server"; 
 import * as jose from "jose";
 import jwt from "jsonwebtoken";
 

@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import AuthModalInput from "./authModalInput";
+import useAuth from "../../hooks/useAuth"
 
 const style = {
   position: "absolute" as "absolute",
@@ -19,7 +20,19 @@ const style = {
 };
 
 function AuthModal({ isSignin }: { isSignin: boolean }) {
+
+  const {signin} = useAuth()
+
   const [open, setOpen] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [inputData, setInputData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    city: "",
+    password: "",
+  });
 
   const handleSigninSignup = (signInContent: string, signUpContent: string) => {
     return isSignin ? signInContent : signUpContent;
@@ -32,14 +45,33 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
     });
   };
 
-  const [inputData, setInputData] = useState({
-    firstName:"",
-    lastName: "",
-    email: "",
-    phone: "",
-    city: "",
-    password: "",
-  });
+
+  const handleClick = () => {
+    if(isSignin){
+      signin({email: inputData.email, password: inputData.password})
+    }
+  }
+
+
+  useEffect(() => {
+    if (isSignin) {
+      if (inputData.password && inputData.email) {
+        return setDisabled(false);
+      }
+    } else {
+      if (
+        inputData.firstName &&
+        inputData.lastName &&
+        inputData.city &&
+        inputData.phone &&
+        inputData.email &&
+        inputData.password
+      ) {
+        return setDisabled(false);
+      }
+    }
+    return setDisabled(true)
+  }, [inputData]);
 
   return (
     <div>
@@ -60,6 +92,7 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
       >
         <Box sx={style}>
           <div className="p-2">
+            
             <div className="uppercase font-bold text-center pb-2 border-b mb-2">
               <p className="text-sm">
                 {handleSigninSignup("SING IN", "CREATE ACCOUNT")}
@@ -77,7 +110,11 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
                 handleChangeInput={handleChangeInput}
                 isSignin={isSignin}
               />
-              <button className="uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400">
+              <button
+                className="uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400"
+                disabled={disabled}
+                onClick={handleClick}
+              >
                 {handleSigninSignup("Sign In", "Create Account")}
               </button>
             </div>
