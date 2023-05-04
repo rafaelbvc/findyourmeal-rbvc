@@ -1,8 +1,13 @@
+"use client"
+
+import { useContext } from "react";
+import { AuthenticationContext } from "../context/AuthContext";
 import SearchBar from "./searchBar";
 
 
 
 const Header = () => {
+  const {data} = useContext(AuthenticationContext)
 
   return (
     <div className="h-64 bg-gradient-to-r from-[#0f1f47] to-[#5f6984] p-2">
