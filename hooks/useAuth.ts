@@ -1,6 +1,11 @@
 import axios from "axios";
+import { AuthenticationContext } from "../app/context/AuthContext";
+import { useContext } from "react";
 
 const useAuth = () => {
+
+  const { data, error, loading, setAuthState } = useContext(AuthenticationContext)
+
   const signin = async ({
     email,
     password,
@@ -8,6 +13,11 @@ const useAuth = () => {
     email: string;
     password: string;
   }) => {
+    setAuthState({
+      error: null,
+      data: null,
+      loading: true,
+    })
     try {
       const response = await axios.post(
         "http://localhost:3000/api/auth/signin",
@@ -16,9 +26,17 @@ const useAuth = () => {
           password,
         }
       );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+      setAuthState({
+        data: response.data,
+        error: null,     
+        loading: false,
+      })
+    } catch (error: any) {
+      setAuthState({
+        data: null,
+        error: error.response.data.errorMessage,     
+        loading: false,
+      })
     }
   };
   const signup = async () => {};

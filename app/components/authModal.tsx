@@ -4,7 +4,10 @@ import { useEffect, useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import AuthModalInput from "./authModalInput";
-import useAuth from "../../hooks/useAuth"
+import useAuth from "../../hooks/useAuth";
+import { AuthenticationContext } from "../context/AuthContext";
+import LinearDeterminate from "./loadingMui";
+import { Alert } from "@mui/material";
 
 const style = {
   position: "absolute" as "absolute",
@@ -12,6 +15,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "25rem",
+  height: "40rem",
   bgcolor: "background.paper",
   border: "0.1rem solid #000",
   boxShadow: "25rem",
@@ -20,9 +24,8 @@ const style = {
 };
 
 function AuthModal({ isSignin }: { isSignin: boolean }) {
-
-  const {signin} = useAuth()
-
+  const { signin } = useAuth();
+  const { loading, data, error } = useContext(AuthenticationContext);
   const [open, setOpen] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [inputData, setInputData] = useState({
@@ -45,13 +48,11 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
     });
   };
 
-
   const handleClick = () => {
-    if(isSignin){
-      signin({email: inputData.email, password: inputData.password})
+    if (isSignin) {
+      signin({ email: inputData.email, password: inputData.password });
     }
-  }
-
+  };
 
   useEffect(() => {
     if (isSignin) {
@@ -70,7 +71,7 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
         return setDisabled(false);
       }
     }
-    return setDisabled(true)
+    return setDisabled(true);
   }, [inputData]);
 
   return (
@@ -91,34 +92,44 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className="p-2">
-            
-            <div className="uppercase font-bold text-center pb-2 border-b mb-2">
-              <p className="text-sm">
-                {handleSigninSignup("SING IN", "CREATE ACCOUNT")}
-              </p>
+          {loading ? (
+            <div className="px-0.5 pt-10 w-[25rem] h-[40rem] flex ">
+              <LinearDeterminate />
             </div>
-            <div className="m-auto">
-              <h2 className="text-2xl font-light text-center">
-                {handleSigninSignup(
-                  "Log Into Your Account",
-                  "Create Your OpenTable Account"
-                )}
-              </h2>
-              <AuthModalInput
-                inputData={inputData}
-                handleChangeInput={handleChangeInput}
-                isSignin={isSignin}
-              />
-              <button
-                className="uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400"
-                disabled={disabled}
-                onClick={handleClick}
-              >
-                {handleSigninSignup("Sign In", "Create Account")}
-              </button>
+          ) : (
+            <div className="p-2">
+              {error ? (
+                <Alert severity="error" className="mb-4">
+                  {error}
+                </Alert>
+              ) : null}
+              <div className="uppercase font-bold text-center pb-2 border-b mb-2">
+                <p className="text-sm">
+                  {handleSigninSignup("SING IN", "CREATE ACCOUNT")}
+                </p>
+              </div>
+              <div className="m-auto">
+                <h2 className="text-2xl font-light text-center">
+                  {handleSigninSignup(
+                    "Log Into Your Account",
+                    "Create Your OpenTable Account"
+                  )}
+                </h2>
+                <AuthModalInput
+                  inputData={inputData}
+                  handleChangeInput={handleChangeInput}
+                  isSignin={isSignin}
+                />
+                <button
+                  className="uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400"
+                  disabled={disabled}
+                  onClick={handleClick}
+                >
+                  {handleSigninSignup("Sign In", "Create Account")}
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </Box>
       </Modal>
     </div>
