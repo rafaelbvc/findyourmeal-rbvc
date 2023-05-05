@@ -23,11 +23,7 @@ const style = {
   textAlign: "center",
 };
 
-function AuthModal({
-  isSignin,
-}: {
-  isSignin: boolean;
-}) {
+function AuthModal({ isSignin }: { isSignin: boolean }) {
   const { signin, signup } = useAuth();
   const { loading, data, error } = useContext(AuthenticationContext);
   const [open, setOpen] = useState(false);
@@ -60,7 +56,10 @@ function AuthModal({
         handleClose
       );
     } else {
-      signup(inputData, handleClose)
+      signup(
+        inputData,
+        handleClose
+      );
     }
   };
 

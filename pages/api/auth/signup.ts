@@ -63,10 +63,10 @@ export default async function SignUpHandler(
       },
     });
 
-    if (!userEmailValidation) {
+    if (userEmailValidation) {
       return res
-        .status(400)
-        .json("Email already associate with another account");
+        .status(401)
+        .json({errorMessage: "Email already associate with another account"});
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -90,15 +90,14 @@ export default async function SignUpHandler(
       .setProtectedHeader({ alg })
       .setExpirationTime("24h")
       .sign(secret);
-
       setCookie("jwt", token, {req, res, maxAge: 60 * 6 * 24})
 
     return res.status(200).json({
-        firstName: userEmailValidation.first_name,
-        lastName: userEmailValidation.last_name,
-        email: userEmailValidation.email,
-        phone: userEmailValidation.phone,
-        city: userEmailValidation.city,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        city: city,
     });
   }
   return res.status(404).json("Can`t resolve the request");
