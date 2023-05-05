@@ -23,10 +23,15 @@ const style = {
   textAlign: "center",
 };
 
-function AuthModal({ isSignin }: { isSignin: boolean }) {
-  const { signin } = useAuth();
+function AuthModal({
+  isSignin,
+}: {
+  isSignin: boolean;
+}) {
+  const { signin, signup } = useAuth();
   const { loading, data, error } = useContext(AuthenticationContext);
   const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
   const [disabled, setDisabled] = useState(true);
   const [inputData, setInputData] = useState({
     firstName: "",
@@ -50,7 +55,12 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
 
   const handleClick = () => {
     if (isSignin) {
-      signin({ email: inputData.email, password: inputData.password });
+      signin(
+        { email: inputData.email, password: inputData.password },
+        handleClose
+      );
+    } else {
+      signup(inputData, handleClose)
     }
   };
 

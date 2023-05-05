@@ -3,6 +3,7 @@ import validator from "validator";
 import { prisma } from "../../../utils/constants";
 import bcrypt from "bcrypt";
 import * as jose from "jose";
+import { setCookie } from "cookies-next";
 
 export default async function SignInHandler(
   req: NextApiRequest,
@@ -34,19 +35,19 @@ export default async function SignInHandler(
       return res.status(400).json({ errorMessage: errors[0] });
     }
 
-    const userEmailExists = await prisma.user.findUnique({
+    const userEmailValidation = await prisma.user.findUnique({
       where: {
         email,
       },
     });
 
-    if (!userEmailExists) {
+    if (!userEmailValidation) {
       return res
         .status(401)
         .json({ errorMessage: "Email or password is invalid" });
     }
 
-    const isMatch = await bcrypt.compare(password, userEmailExists.password);
+    const isMatch = await bcrypt.compare(password, userEmailValidation.password);
 
     if(!isMatch) {
         return res.status(401).json({errorMessage: "Email of password is invalid"})
@@ -56,14 +57,22 @@ export default async function SignInHandler(
 
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
 
-    const token = await new jose.SignJWT({ email: userEmailExists.email })
+    
+
+    const token = await new jose.SignJWT({ email: userEmailValidation.email })
       .setProtectedHeader({ alg })
       .setExpirationTime("24h")
       .sign(secret);
 
+      setCookie("jwt", token, {req, res, maxAge: 60 * 6 * 24})
+
       
     return res.status(200).json({
-      token,
+      firstName: userEmailValidation.first_name,
+      lastName: userEmailValidation.last_name,
+      email: userEmailValidation.email,
+      phone: userEmailValidation.phone,
+      city: userEmailValidation.city,
     });
 
   }

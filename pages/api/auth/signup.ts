@@ -3,6 +3,7 @@ import validator from "validator";
 import { prisma } from "../../../utils/constants";
 import bcrypt from "bcrypt";
 import * as jose from "jose";
+import { setCookie } from "cookies-next";
 
 export default async function SignUpHandler(
   req: NextApiRequest,
@@ -56,13 +57,13 @@ export default async function SignUpHandler(
       return res.status(400).json({ errorMessage: errors[0] });
     }
 
-    const userEmailExist = await prisma.user.findUnique({
+    const userEmailValidation = await prisma.user.findUnique({
       where: {
         email,
       },
     });
 
-    if (userEmailExist) {
+    if (!userEmailValidation) {
       return res
         .status(400)
         .json("Email already associate with another account");
@@ -90,8 +91,14 @@ export default async function SignUpHandler(
       .setExpirationTime("24h")
       .sign(secret);
 
+      setCookie("jwt", token, {req, res, maxAge: 60 * 6 * 24})
+
     return res.status(200).json({
-      token,
+        firstName: userEmailValidation.first_name,
+        lastName: userEmailValidation.last_name,
+        email: userEmailValidation.email,
+        phone: userEmailValidation.phone,
+        city: userEmailValidation.city,
     });
   }
   return res.status(404).json("Can`t resolve the request");
