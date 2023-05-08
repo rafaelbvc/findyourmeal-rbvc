@@ -25,7 +25,7 @@ const style = {
 
 export default function AuthModal({ isSignin }: { isSignin: boolean }) {
   const { signin, signup } = useAuth();
-  const { loading, data, error } = useContext(AuthenticationContext);
+  const { loading , error } = useContext(AuthenticationContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -114,7 +114,6 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
                 <p className="text-sm">
                   {handleSigninSignup("SING IN", "CREATE ACCOUNT")}
                 </p>
-                {data?.firstName}
               </div>
               <div className="m-auto">
                 <h2 className="text-2xl font-light text-center">
