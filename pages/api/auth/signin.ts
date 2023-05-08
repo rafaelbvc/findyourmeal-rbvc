@@ -35,19 +35,19 @@ export default async function SignInHandler(
       return res.status(400).json({ errorMessage: errors[0] });
     }
 
-    const userEmailValidation = await prisma.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: {
         email,
       },
     });
 
-    if (!userEmailValidation) {
+    if (!user) {
       return res
         .status(401)
         .json({ errorMessage: "Email or password is invalid" });
     }
 
-    const isMatch = await bcrypt.compare(password, userEmailValidation.password);
+    const isMatch = await bcrypt.compare(password, user.password);
 
     if(!isMatch) {
         return res.status(401).json({errorMessage: "Email of password is invalid"})
@@ -59,7 +59,7 @@ export default async function SignInHandler(
 
     
 
-    const token = await new jose.SignJWT({ email: userEmailValidation.email })
+    const token = await new jose.SignJWT({ email: user.email })
       .setProtectedHeader({ alg })
       .setExpirationTime("24h")
       .sign(secret);
@@ -68,11 +68,11 @@ export default async function SignInHandler(
 
       
     return res.status(200).json({
-      firstName: userEmailValidation.first_name,
-      lastName: userEmailValidation.last_name,
-      email: userEmailValidation.email,
-      phone: userEmailValidation.phone,
-      city: userEmailValidation.city,
+      firstName: user.first_name,
+      lastName: user.last_name,
+      email: user.email,
+      phone: user.phone,
+      city: user.city,
     });
 
   }

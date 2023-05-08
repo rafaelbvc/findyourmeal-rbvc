@@ -6,7 +6,7 @@ function NavBar() {
 
   return (
     <nav className="bg-white p-2 flex justify-between">
-        <a href="/" className="font-bold text-gray-700 text-2xl">
+        <a href="/" className="pl-1 font-bold text-gray-700 text-2xl hover:text-gray-800">
           OpenTable{" "}
         </a>
       <div>

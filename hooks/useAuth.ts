@@ -3,7 +3,7 @@ import { AuthenticationContext } from "../app/context/AuthContext";
 import { useContext } from "react";
 
 const useAuth = () => {
-  const { data, error, loading, setAuthState } = useContext(
+  const { setAuthState } = useContext(
     AuthenticationContext
   );
 
@@ -44,6 +44,9 @@ const useAuth = () => {
       });
     }
   };
+
+
+
 
   const signup = async (
     {
