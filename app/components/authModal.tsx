@@ -23,10 +23,11 @@ const style = {
   textAlign: "center",
 };
 
-function AuthModal({ isSignin }: { isSignin: boolean }) {
+export default function AuthModal({ isSignin }: { isSignin: boolean }) {
   const { signin, signup } = useAuth();
   const { loading, data, error } = useContext(AuthenticationContext);
   const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [disabled, setDisabled] = useState(true);
   const [inputData, setInputData] = useState({
@@ -56,10 +57,7 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
         handleClose
       );
     } else {
-      signup(
-        inputData,
-        handleClose
-      );
+      signup(inputData, handleClose);
     }
   };
 
@@ -87,16 +85,16 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
     <div>
       <button
         className={`${handleSigninSignup(
-          "bg-blue-400 text-white",
+          "bg-blue-400 text-white hover:bg-blue-500",
           ""
-        )} border p-1 px-4 rounded mr-3`}
-        onClick={() => setOpen(true)}
+        )} border p-1 px-4 rounded mr-3  hover:bg-gray-100`}
+        onClick={handleOpen}
       >
         {handleSigninSignup("Sign in", "Sign up")}
       </button>
       <Modal
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -116,6 +114,7 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
                 <p className="text-sm">
                   {handleSigninSignup("SING IN", "CREATE ACCOUNT")}
                 </p>
+                {data?.firstName}
               </div>
               <div className="m-auto">
                 <h2 className="text-2xl font-light text-center">
@@ -130,7 +129,7 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
                   isSignin={isSignin}
                 />
                 <button
-                  className="uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400"
+                  className="uppercase bg-red-600 w-full text-white p-3 rounded text-sm mb-5 disabled:bg-gray-400 hover:bg-red-700"
                   disabled={disabled}
                   onClick={handleClick}
                 >
@@ -144,4 +143,3 @@ function AuthModal({ isSignin }: { isSignin: boolean }) {
     </div>
   );
 }
-export default AuthModal;

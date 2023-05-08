@@ -36,5 +36,5 @@ export async function middleware(
 
 
 export const config = {
-  matcher: ["/api/auth/me"],
+  matcher: ["/api/auth/authenticated"],
 };

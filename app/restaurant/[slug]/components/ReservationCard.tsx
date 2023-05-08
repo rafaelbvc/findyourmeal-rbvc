@@ -26,7 +26,7 @@ const ReservationCard = () => {
           </div>
         </div>
         <div className="mt-5">
-          <button className="bg-red-600 rounded w-full px-4 text-white font-bold h-16">
+          <button className="bg-red-600 rounded w-full px-4 text-white font-bold h-16 hover:bg-red-700">
             Find a Time
           </button>
         </div>
