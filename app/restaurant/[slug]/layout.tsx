@@ -1,4 +1,5 @@
 import RestaurantHeader from "./components/restaurantHeader";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 export function generateMetadata({params}:{params: {slug: string}}){

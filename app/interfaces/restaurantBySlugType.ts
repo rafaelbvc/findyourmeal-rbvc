@@ -7,4 +7,6 @@ export default interface FetchRestaurantBySlug {
     description: string;
     reviews: Review[];
     slug: string;
+    open_time: string,
+    close_time: string,
   }
