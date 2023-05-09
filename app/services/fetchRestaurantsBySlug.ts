@@ -15,6 +15,8 @@ export const FetchRestaurantBySlug = async (
         description: true,
         reviews: true,
         slug: true,
+        open_time: true,
+        close_time: true,
       },
     });
   
