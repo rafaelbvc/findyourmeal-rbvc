@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { times } from "../../../../data/index";
+import { findAvailableTables } from "../../../../services/restaurant/findAvailableTables";
 import { prisma } from "../../../../utils/constants";
 
 export default async function handleAvailability(
@@ -17,42 +17,6 @@ export default async function handleAvailability(
     return res.status(400).json({ errorMessage: "Invalid data provided" });
   }
 
-  const searchTimes = times.find((t) => {
-    return t.time === time;
-  })?.searchTimes;
-
-  if (!searchTimes) {
-    return res.status(400).json({
-      errorMessage: "Invalid data provided",
-    });
-  }
-
-  const bookings = await prisma.booking.findMany({
-    where: {
-      booking_time: {
-        gte: new Date(`${day}T${searchTimes[0]}`),
-        lte: new Date(`${day}T${searchTimes[searchTimes.length - 1]}`),
-      },
-    },
-    select: {
-      number_of_people: true,
-      booking_time: true,
-      tables: true,
-    },
-  });
-
-  const bookingTablesObj: { [key: string]: { [key: number]: true } } = {};
-
-  bookings.forEach((booking) => {
-    bookingTablesObj[booking.booking_time.toISOString()] =
-      booking.tables.reduce((obj, table) => {
-        return {
-          ...obj,
-          [table.table_id]: true,
-        };
-      }, {});
-  });
-
   const restaurant = await prisma.restaurant.findUnique({
     where: {
       slug,
@@ -67,25 +31,18 @@ export default async function handleAvailability(
     return res.status(400).json({ errorMessage: "Invalid data provided" });
   }
 
-  const tables = restaurant.tables;
-
-  const searchTimesWithTables = searchTimes.map((searchTime) => {
-    return {
-      date: new Date(`${day}T${searchTime}`),
-      time: searchTime,
-      tables,
-    };
+  const searchTimesWithTables = await findAvailableTables({
+    day,
+    time,
+    res,
+    restaurant,
   });
 
-  searchTimesWithTables.forEach(
-    (t) =>
-      (t.tables = t.tables.filter((table) => {
-        if (bookingTablesObj[t.date.toISOString()]) {
-          if (bookingTablesObj[t.date.toISOString()][table.id]) return null;
-        }
-        return true;
-      }))
-  );
+  if(!searchTimesWithTables){
+    return res.status(400).json({ errorMessage: "Invalid request" });
+  }
+
+
 
   const availabilities = searchTimesWithTables
     .map((t) => {
@@ -108,7 +65,5 @@ export default async function handleAvailability(
       return timeIsAfterOpeningHour && timeIsBeforeClosingHour;
     });
 
-  return res.json(
-    availabilities
-  );
+  return res.json(availabilities);
 }

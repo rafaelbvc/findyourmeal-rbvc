@@ -1,5 +1,5 @@
-import FetchRestaurantBySlug from "../interfaces/restaurantBySlugType";
-import { prisma } from "../../utils/constants";
+import FetchRestaurantBySlug from "../app/interfaces/restaurantBySlugType";
+import { prisma } from "../utils/constants";
 
 export const FetchRestaurantBySlug = async (
     slug: string,
