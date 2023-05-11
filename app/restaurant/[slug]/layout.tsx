@@ -27,3 +27,4 @@ function RestaurantLayout({ children, params }: { children: React.ReactNode; par
 }
 
 export default RestaurantLayout;
+
