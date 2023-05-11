@@ -1,11 +1,11 @@
 import Header from "../components/header";
 
 import SearchSideBar from "./components/searchSideBar";
-import { FetchRestaurantsByFilters } from "../services/fetchRestaurantsByFilters"
+import { FetchRestaurantsByFilters } from "../../services/fetchRestaurantsByFilters"
 import { SearchParamsType } from "../interfaces/searchParamsType";
 import RestaurantSearchCard from "./components/restaurantSearchCard";
-import { FetchLocations } from "../services/fetchLocations"
-import { FetchCuisines } from "../services/fetchCuisines"
+import { FetchLocations } from "../../services/fetchLocations"
+import { FetchCuisines } from "../../services/fetchCuisines"
 
 
 async function Search({ searchParams }: { searchParams: SearchParamsType;}) {

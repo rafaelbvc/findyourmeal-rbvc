@@ -1,5 +1,5 @@
-import { prisma } from "../../utils/constants";
-import { SearchParamsType } from "../interfaces/searchParamsType";
+import { prisma } from "../utils/constants";
+import { SearchParamsType } from "../app/interfaces/searchParamsType";
 
 
 export const  FetchRestaurantsByFilters = async(
