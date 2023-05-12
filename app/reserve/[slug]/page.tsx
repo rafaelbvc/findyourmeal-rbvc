@@ -1,14 +1,36 @@
 import Form from "./components/form";
 import Header from "./components/header";
+import { prisma } from "../../../utils/constants";
+import { notFound } from "next/navigation";
+import { Dispatch, SetStateAction } from "react";
 
+const fetchRestaurantBySlug = async (slug: string) => {
+  const restaurant = await prisma.restaurant.findUnique({
+    where: {
+      slug,
+    },
+  });
 
-export default function Reserve() {
+  if (!restaurant) {
+    notFound();
+  }
+  return restaurant;
+};
+
+export default async function Reserve({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: {date: string, partySize: string, }
+}) {
+  const restaurant = await fetchRestaurantBySlug(params.slug);
   return (
-      <div className="border-t h-screen">
-        <div className="py-9 w-3/5 m-auto">
-          <Header />
-          <Form />
-        </div>
+    <div className="border-t h-screen">
+      <div className="py-9 w-3/5 m-auto">
+        <Header image={restaurant.main_image} name={restaurant.name} partySize={searchParams.partySize} date={searchParams.date}/>
+        <Form partySize={searchParams.partySize} slug={params.slug} date={searchParams.date}/>
       </div>
+    </div>
   );
 }
