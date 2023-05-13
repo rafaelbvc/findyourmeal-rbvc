@@ -17,11 +17,12 @@ const ReservationCard = ({
   closeTime: string;
   slug: string;
 }) => {
-  const { data, loading, error, fetchAvailabilities } = useAvailabilities();
+  const { data, loading, fetchAvailabilities } = useAvailabilities();
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
   const [time, setTime] = useState(openTime);
   const [partySize, setPartySize] = useState("3");
   const [day, setDay] = useState(new Date().toISOString().split("T")[0]);
+
 
   const handleChangeData = (date: Date | null) => {
     if (date) {

@@ -16,7 +16,7 @@ export default function Form({
   date: string;
   slug: string;
   partySize: string;
-  setBook: Dispatch<SetStateAction<boolean>>;
+  setBook?: Dispatch<SetStateAction<boolean>>
 }) {
   const [inputs, setInputs] = useState({
     bookerFirstName: "",
@@ -32,6 +32,7 @@ export default function Form({
   const [disabled, setDisabled] = useState(false);
   const { error, loading, createReservation } = useReservation();
   const [book, setBook] = useState(false);
+
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputs({
