@@ -1,6 +1,6 @@
 import { FetchRestaurantBySlug } from "../../../services/fetchRestaurantsBySlug";
-import Description from "./components/description";
-import Images from "./components/images";
+import Description from "./components/Description";
+import Images from "./components/Images";
 import Ratings from "./components/ratings";
 import ReservationCard from "./components/ReservationCard";
 
