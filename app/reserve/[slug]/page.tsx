@@ -1,7 +1,8 @@
-import Form from "./components/form";
 import Header from "./components/header";
 import { prisma } from "../../../utils/constants";
 import { notFound } from "next/navigation";
+import Form from "./components/Form";
+import RestaurantHeader from "../../restaurant/[slug]/components/RestaurantHeader";
 
 
 const fetchRestaurantBySlug = async (slug: string) => {
