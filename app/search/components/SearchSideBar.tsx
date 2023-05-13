@@ -31,7 +31,7 @@ function SearchSideBar({
   return (
     <div className="w-1/5">
       <div className="border-b pb-4 flex flex-col">
-        <h1 className="mb-2">Region</h1>
+        <h1 className="mb-2 bold">Region</h1>
         {locations.map((location) => (
           <Link
             key={location.id}
@@ -49,7 +49,7 @@ function SearchSideBar({
         ))}
       </div>
       <div className="border-b pb-4 mt-4 flex flex-col">
-        <h1 className="mb-2">Cuisine</h1>
+        <h1 className="mb-2 bold">Cuisine</h1>
         {cuisines.map((cuisine) => (
           <Link
             key={cuisine.id}
@@ -67,7 +67,7 @@ function SearchSideBar({
         ))}
       </div>
       <div className="mt-3 pb-4">
-        <h1 className="mb-2">Price</h1>
+        <h1 className="mb-2 bold">Price</h1>
         <div className="flex">
           {prices.map(({ price, label, className }) => (
             <Link

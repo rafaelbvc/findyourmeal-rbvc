@@ -9,4 +9,5 @@ export default interface FetchRestaurantBySlug {
     slug: string;
     open_time: string,
     close_time: string,
+    main_image: string,
   }

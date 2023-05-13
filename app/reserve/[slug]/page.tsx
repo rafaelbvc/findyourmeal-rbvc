@@ -2,7 +2,7 @@ import Form from "./components/form";
 import Header from "./components/header";
 import { prisma } from "../../../utils/constants";
 import { notFound } from "next/navigation";
-import { Dispatch, SetStateAction } from "react";
+
 
 const fetchRestaurantBySlug = async (slug: string) => {
   const restaurant = await prisma.restaurant.findUnique({
