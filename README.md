@@ -3,6 +3,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 # TODO | Reserve - Title
 # TODO | Search - Loading / Error / Not-found / Title
 
+## jsonwebtoken doesn`t build - I solved this just removing the lib jsonwebtoken n using jose n changind this:
+
+  const payload = jwt.decode(token) as {email: string};
+
+  To this:
+
+  const payload = jose.decodeJwt(token) as {email: string};
+
 ## After update to version 13.3.0 - "use client" made the app break with parse/type error, so i just changed to arrow function, that works
 ## Version 13.3.0 head.t/jsx deprecated, tags header with metadada above body component works fine - Solution: Migrate the metada and main estructure to the layout.j(t)sx
 

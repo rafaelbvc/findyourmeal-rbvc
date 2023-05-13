@@ -21,32 +21,31 @@ function NavBar() {
       >
         OpenTable{" "}
       </Link>
-      <p className="pl-1 font-bold text-gray-700 text-2xl hover:text-gray-500 ml-[48rem] flex mr-[-4rem]">
-        Rafael Vendramini
-      </p>
-      <Link
-        className="ml-[-1rem]"
-        href={"https://github.com/rafaelbvc/rvbvcopentablenextjs"}
-        target="blank"
-      >
-        <Image
-          src={GitIcon}
-          alt="Git Hub Icon"
-          className="ml-4 w-[2rem] h-[2rem]"
-        />
-      </Link>
-      <Link
-        className="ml-[-4rem]"
-        href={"https://www.linkedin.com/in/rafael-vendramini/"}
-        target="blank"
-      >
-        <Image
-          src={LinkedInIcon}
-          alt="LinkedIn Icon"
-          className="w-[2.1rem] h-[2.1rem]"
-        />
-      </Link>
-
+      <div className="ml-[50rem] mr-[2rem] flex justify-between  w-[18rem]">
+        <p className="pl-1 font-bold text-gray-700 text-2xl hover:text-gray-500">
+          Rafael Vendramini
+        </p>
+        <Link
+          href={"https://github.com/rafaelbvc/rvbvcopentablenextjs"}
+          target="blank"
+        >
+          <Image
+            src={GitIcon}
+            alt="Git Hub Icon"
+            className="w-[2rem] h-[2rem]"
+          />
+        </Link>
+        <Link
+          href={"https://www.linkedin.com/in/rafael-vendramini/"}
+          target="blank"
+        >
+          <Image
+            src={LinkedInIcon}
+            alt="LinkedIn Icon"
+            className="w-[2.1rem] h-[2.1rem]"
+          />
+        </Link>
+      </div>
       <div>
         {loading ? null : (
           <div className="flex">

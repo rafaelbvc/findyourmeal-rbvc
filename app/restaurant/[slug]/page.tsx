@@ -2,8 +2,9 @@ import { FetchRestaurantBySlug } from "../../../services/fetchRestaurantsBySlug"
 import Description from "./components/description";
 import Images from "./components/images";
 import Ratings from "./components/ratings";
-import ReservationCard from "./components/reservationCard";
-import RestaurantNavBar from "./components/restaurantNavBar";
+import ReservationCard from "./components/ReservationCard";
+
+import RestaurantNavBar from "./components/RestaurantNavBar";
 import Reviews from "./components/reviews";
 import Title from "./components/title";
 
