@@ -1,3 +1,4 @@
+import { FetchRestaurantBySlug } from "../../../services/fetchRestaurantsBySlug";
 import RestaurantHeader from "./components/restaurantHeader";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -12,13 +13,14 @@ export function generateMetadata({params}:{params: {slug: string}}){
 }
 
 
-function RestaurantLayout({ children, params }: { children: React.ReactNode; params: {slug: string} }) {
+async function RestaurantLayout({ children, params }: { children: React.ReactNode; params: {slug: string} }) {
 
-  const propHeaderTitle = generateMetadata
+  const restaurant = await FetchRestaurantBySlug(params.slug);
+
 
   return (
       <>
-        <RestaurantHeader name={params.slug}/>
+        <RestaurantHeader name={params.slug} image={restaurant.main_image}/>
         <div className="flex m-auto w-2/3 justify-between items-start 0 -mt-11">
           {children}
         </div>

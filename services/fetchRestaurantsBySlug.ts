@@ -17,6 +17,7 @@ export const FetchRestaurantBySlug = async (
         slug: true,
         open_time: true,
         close_time: true,
+        main_image: true,
       },
     });
   
