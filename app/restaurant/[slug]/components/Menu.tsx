@@ -1,5 +1,5 @@
 import { Item } from "@prisma/client";
-import MenuCard from "./menuCard";
+import MenuCard from "./MenuCard";
 import React from "react";
 
 export default function Menu({ menu }: { menu: Item[] }) {
