@@ -1,5 +1,7 @@
 # Project for my portifolium, custom OpenTable - Rafael Vendramini
 
+# Only restaurant Vivaan - Fine Indian is populated with tables
+
 ## LinkedIn : https://www.linkedin.com/in/rafael-vendramini/
 
 ## GitHub: https://github.com/rafaelbvc/
