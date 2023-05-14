@@ -7,7 +7,7 @@ export const findAvailableTables = async ({
   time,
   day,
   res,
-  restaurant
+  restaurant,
 }: {
   time: string;
   day: string;
@@ -16,7 +16,7 @@ export const findAvailableTables = async ({
     tables: Table[];
     open_time: string;
     close_time: string;
-  }
+  };
 }) => {
   const searchTimes = times.find((t) => {
     return t.time === time;
@@ -54,19 +54,19 @@ export const findAvailableTables = async ({
       }, {});
   });
 
-//   const restaurant = await prisma.restaurant.findUnique({
-//     where: {
-//       slug,
-//     },
-//     select: {
-//       tables: true,
-//       open_time: true,
-//       close_time: true,
-//     },
-//   });
-//   if (!restaurant) {
-//     return res.status(400).json({ errorMessage: "Invalid data provided" });
-//   }
+  //   const restaurant = await prisma.restaurant.findUnique({
+  //     where: {
+  //       slug,
+  //     },
+  //     select: {
+  //       tables: true,
+  //       open_time: true,
+  //       close_time: true,
+  //     },
+  //   });
+  //   if (!restaurant) {
+  //     return res.status(400).json({ errorMessage: "Invalid data provided" });
+  //   }
 
   const tables = restaurant.tables;
 

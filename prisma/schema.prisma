@@ -101,20 +101,20 @@ model Booking {
 }
 
 model Table {
-  id                 Int                @id @default(autoincrement())
-  seats              Int
-  restaurant         Restaurant         @relation(fields: [restaurant_id], references: [id])
-  restaurant_id      Int
-  bookingsOnTable    BookingsOnTables[]
-  created_at         DateTime           @default(now())
-  updated_at         DateTime           @updatedAt
+  id              Int                @id @default(autoincrement())
+  seats           Int
+  restaurant      Restaurant         @relation(fields: [restaurant_id], references: [id])
+  restaurant_id   Int
+  bookingsOnTable BookingsOnTables[]
+  created_at      DateTime           @default(now())
+  updated_at      DateTime           @updatedAt
 }
 
 model BookingsOnTables {
   booking_id Int
   booking    Booking  @relation(fields: [booking_id], references: [id])
   table_id   Int
-  table      Table    @relation(fields: [table_id], references: [id]) 
+  table      Table    @relation(fields: [table_id], references: [id])
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
