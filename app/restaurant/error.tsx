@@ -9,7 +9,8 @@ function ErrorRestaurant({ error }: { error: Error }) {
       <Image src={ErrorImage} alt="Error!" className="w-65 mb-8" />
       <div className="bg-white px-9 py-12 shadow rounded">
         <h3 className="text-3xl font-bold text-center">
-          Well, this is embarrassing...
+          Well, this is embarrassing... This error is occurring because I use a
+          free data bank and reached the connection bottleneck X_X!
         </h3>
         <p className="text-lg font-bold text-center mt-2">{error.message}</p>
         <p className="mt-6 text-regular font-semibold  text-center">
