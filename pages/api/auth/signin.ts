@@ -49,24 +49,23 @@ export default async function SignInHandler(
 
     const isMatch = await bcrypt.compare(password, user.password);
 
-    if(!isMatch) {
-        return res.status(401).json({errorMessage: "Email of password is invalid"})
+    if (!isMatch) {
+      return res
+        .status(401)
+        .json({ errorMessage: "Email of password is invalid" });
     }
 
     const alg = "HS256";
 
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
 
-    
-
     const token = await new jose.SignJWT({ email: user.email })
       .setProtectedHeader({ alg })
       .setExpirationTime("24h")
       .sign(secret);
 
-      setCookie("jwt", token, {req, res, maxAge: 60 * 6 * 24})
+    setCookie("jwt", token, { req, res, maxAge: 60 * 6 * 24 });
 
-      
     return res.status(200).json({
       firstName: user.first_name,
       lastName: user.last_name,
@@ -74,7 +73,6 @@ export default async function SignInHandler(
       phone: user.phone,
       city: user.city,
     });
-
   }
-  return res.status(404).json({errorMessage: "Can`t resolve the resquest"} );
+  return res.status(404).json({ errorMessage: "Can`t resolve the resquest" });
 }

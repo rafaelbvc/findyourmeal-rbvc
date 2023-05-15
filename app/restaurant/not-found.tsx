@@ -11,7 +11,9 @@ function ErrorNotFound({ error }: { error: Error }) {
         <h3 className="text-3xl font-bold text-center">
           Well, this is embarrassing...
         </h3>
-        <p className="text-lg font-bold text-center mt-2">We couldn`t find that restaurant</p>
+        <p className="text-lg font-bold text-center mt-2">
+          We couldn`t find that restaurant
+        </p>
         <p className="mt-6 text-regular font-light text-center">
           Error Code: 400.
         </p>

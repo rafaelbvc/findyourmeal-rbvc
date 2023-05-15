@@ -1,8 +1,7 @@
 import { prisma } from "../utils/constants";
 import { SearchParamsType } from "../app/interfaces/searchParamsType";
 
-
-export const  FetchRestaurantsByFilters = async(
+export const FetchRestaurantsByFilters = async (
   searchParams: SearchParamsType
 ) => {
   const querySearch = await prisma.restaurant.findMany({
@@ -31,21 +30,14 @@ export const  FetchRestaurantsByFilters = async(
       slug: true,
       reviews: true,
     },
-  })
+  });
   if (!querySearch) {
     throw new Error("NULL");
   }
-  return querySearch
-
-
-
-
-
-
+  return querySearch;
 
   // const where: any = {};
 
-  
   // if (searchParams.city) {
   //   const location = {
   //     name: {
@@ -82,6 +74,4 @@ export const  FetchRestaurantsByFilters = async(
   // };
 
   // return prisma.restaurant.findMany({ where, select });
-
-
 };

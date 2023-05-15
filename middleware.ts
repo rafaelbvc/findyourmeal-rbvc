@@ -30,7 +30,7 @@ export async function middleware(req: NextRequest, res: NextResponse) {
     );
   }
 
-  const payload = jose.decodeJwt(token) as {email: string};
+  const payload = jose.decodeJwt(token) as { email: string };
 
   if (!payload.email) {
     return new NextResponse(

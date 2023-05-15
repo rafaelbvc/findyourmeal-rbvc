@@ -53,7 +53,7 @@ export default function useReservation() {
       );
       setLoading(false);
       setBook(true);
-      return response.data
+      return response.data;
     } catch (error: any) {
       setLoading(false);
       setError(error.response.data.errorMessage);

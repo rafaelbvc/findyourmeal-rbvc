@@ -4,9 +4,7 @@ import RestaurantSearchCartdType from "../../interfaces/restaurantSearchCardType
 import { calculateReviewRatingAverage } from "../../../utils/calculateReviewRatingAverage";
 import stars from "../../components/stars";
 
-const RestaurantSearchCard = ({restaurant}: RestaurantSearchCartdType) => {
-
-
+const RestaurantSearchCard = ({ restaurant }: RestaurantSearchCartdType) => {
   const calculateRatingText = () => {
     const rating = calculateReviewRatingAverage(restaurant.reviews);
     if (rating > 4) return "Awesome";
@@ -25,20 +23,16 @@ const RestaurantSearchCard = ({restaurant}: RestaurantSearchCartdType) => {
       <div className="pl-5">
         <h2 className="text-3xl">{restaurant.name}</h2>
         <div className="flex items-start">
-          <div className="flex bm-2 self-center">{stars(calculateReviewRatingAverage(restaurant.reviews))}</div>
-          <p className="ml-2 text-sm self-center">
-            {calculateRatingText()}
-          </p>
+          <div className="flex bm-2 self-center">
+            {stars(calculateReviewRatingAverage(restaurant.reviews))}
+          </div>
+          <p className="ml-2 text-sm self-center">{calculateRatingText()}</p>
         </div>
         <div className="mb-9">
           <div className="font-light flex text-reg">
             <Price price={restaurant.price} />
-            <p className="mr-4 capitalize">
-              {restaurant.cuisine.name}
-            </p>
-            <p className="mr-4 capitalize">
-              {restaurant.location.name}
-            </p>
+            <p className="mr-4 capitalize">{restaurant.cuisine.name}</p>
+            <p className="mr-4 capitalize">{restaurant.location.name}</p>
           </div>
         </div>
         <div className="text-red-600">
