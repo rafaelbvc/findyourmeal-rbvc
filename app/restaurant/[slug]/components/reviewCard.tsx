@@ -1,13 +1,5 @@
 import Stars from "../../../components/stars";
-
-type ReviewCardType = {
-  review: {
-    first_name: string;
-    last_name: string;
-    text: string;
-    rating: number;
-  };
-};
+import { ReviewCardType } from "../../../interfaces/reviewCardType";
 
 function ReviewCard({ review }: ReviewCardType) {
   return (
@@ -29,9 +21,7 @@ function ReviewCard({ review }: ReviewCardType) {
         <div className="ml-10 w-5/6">
           <div className="flex items-center">
             <div className="mt-5">
-              <div className="flex mr-5 mb-2">
-                {Stars(review.rating)}
-              </div>
+              <div className="flex mr-5 mb-2">{Stars(review.rating)}</div>
               <p className="text-lg font-light">{review.text}</p>
             </div>
           </div>

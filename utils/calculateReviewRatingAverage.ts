@@ -8,4 +8,3 @@ export const calculateReviewRatingAverage = (reviews: Review[]) => {
     }, 0) / reviews.length
   );
 };
-

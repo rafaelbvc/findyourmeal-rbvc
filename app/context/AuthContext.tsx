@@ -3,25 +3,8 @@
 import React, { useState, createContext, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import axios from "axios";
-
-interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  city: string;
-  phone: string;
-  email: string;
-}
-
-interface State {
-  loading: boolean;
-  data: User | null;
-  error: string | null;
-}
-
-interface AuthState extends State {
-  setAuthState: React.Dispatch<React.SetStateAction<State>>;
-}
+import { State } from "../interfaces/interfaceState";
+import { AuthState } from "../interfaces/interfaceAuthState";
 
 export const AuthenticationContext = createContext<AuthState>({
   loading: false,
@@ -68,8 +51,6 @@ export default function AuthContext({
         error: null,
         loading: false,
       });
-
-
     } catch (error: any) {
       setAuthState({
         error: error.response.data.errorMessage,
@@ -89,4 +70,3 @@ export default function AuthContext({
     </AuthenticationContext.Provider>
   );
 }
-

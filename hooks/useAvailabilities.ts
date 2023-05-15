@@ -5,7 +5,9 @@ import { Time } from "../utils/convertToDisplayTime";
 export default function useAvailabilities() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState<{time:Time, available: boolean}[] | null>(null);
+  const [data, setData] = useState<{ time: Time; available: boolean }[] | null>(
+    null
+  );
 
   const fetchAvailabilities = async ({
     slug,
@@ -18,7 +20,7 @@ export default function useAvailabilities() {
     day: string;
     time: string;
   }) => {
-    console.log({day, slug, time, partySize})
+    console.log({ day, slug, time, partySize });
     setLoading(true);
     try {
       const response = await axios.get(
@@ -39,6 +41,5 @@ export default function useAvailabilities() {
     }
   };
 
-
-  return {loading, data, error, fetchAvailabilities}
+  return { loading, data, error, fetchAvailabilities };
 }

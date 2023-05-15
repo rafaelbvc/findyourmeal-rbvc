@@ -4,9 +4,7 @@ import { useContext } from "react";
 import { removeCookies } from "cookies-next";
 
 const useAuth = () => {
-  const { setAuthState } = useContext(
-    AuthenticationContext
-  );
+  const { setAuthState } = useContext(AuthenticationContext);
 
   const signin = async (
     {
@@ -45,9 +43,6 @@ const useAuth = () => {
       });
     }
   };
-
-
-
 
   const signup = async (
     {
@@ -106,7 +101,7 @@ const useAuth = () => {
       error: null,
       loading: false,
     });
-  }
+  };
 
   return {
     signin,

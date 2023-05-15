@@ -1325,5 +1325,4 @@ export default async function handler(
   res.status(200).json({ name: "success" });
 }
 
-
 //vivaan-fine-indian-cuisine-ottawa

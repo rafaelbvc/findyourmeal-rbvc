@@ -4,7 +4,6 @@ import { FetchRestaurants } from "../services/fetchRestaurants";
 import RestaurantCard from "./components/RestaurantCard";
 
 const Home = async () => {
-
   const restaurants = await FetchRestaurants();
 
   return (

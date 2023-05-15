@@ -53,6 +53,4 @@
 
 ### Responsivenes for mobiles
 
-### Refactors
-
 ### Some changes

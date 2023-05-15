@@ -27,8 +27,12 @@ const Header = ({
       <div className="flex">
         <div className="ml-4 flex justify-center">
           <h1 className="text-3xl font-bold">{name}</h1>
-          <p className="mr-6 mt-[0.6rem] ml-[1rem]">{format(new Date(date), "ccc, MMM d")}</p>
-          <p className="mr-6 mt-[0.6rem]">{convertToDisplayTime(time as Time)}</p>
+          <p className="mr-6 mt-[0.6rem] ml-[1rem]">
+            {format(new Date(date), "ccc, MMM d")}
+          </p>
+          <p className="mr-6 mt-[0.6rem]">
+            {convertToDisplayTime(time as Time)}
+          </p>
           <p className="mr-6 mt-[0.6rem]">
             {partySize} {parseInt(partySize) === 1 ? "person" : "people"}
           </p>
