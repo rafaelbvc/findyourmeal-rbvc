@@ -76,14 +76,6 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     return setDisabled(true);
   }, [inputData]);
 
-  console.log(
-    inputData,
-    validPhone.test(inputData.phone),
-    validEmail.test(inputData.email),
-    validPassword.test(inputData.password),
-    "from console"
-  );
-
   return (
     <div>
       <button
@@ -137,11 +129,11 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
                 >
                   {handleSigninSignup("Sign In", "Create Account")}
                 </button>
-                {validEmail.test(inputData.email) === false ? (
+                {inputData.email.length && validEmail.test(inputData.email) === false ? (
                   <div className="text-red-600 text-reg">Invalid Email</div>
-                ) : validPhone.test(inputData.phone) === false ? (
+                ) : inputData.phone && validPhone.test(inputData.phone) === false ? (
                   <div className="text-red-600 text-reg">Invalid Phone</div>
-                ) : validPassword.test(inputData.password) === false ? (
+                ) : inputData.password && validPassword.test(inputData.password) === false ? (
                   <div className="text-red-600 text-reg">
                     Password must contain at least eight characters, one
                     uppercase letter, one lowercase letter, one number and one
