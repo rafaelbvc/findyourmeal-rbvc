@@ -34,7 +34,8 @@ export default function useReservation() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/restaurant/${slug}/reserve`,
+        `https://rvbvcopentablenextjs.vercel.app/api/restaurant/${slug}/reserve`,
+        // "https://localhost:3000",
         {
           bookerFirstName,
           bookerLastName,

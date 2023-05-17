@@ -24,7 +24,8 @@ export default function useAvailabilities() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/restaurant/${slug}/availability`,
+        `https://rvbvcopentablenextjs.vercel.app//api/restaurant/${slug}/availability`,
+        // `https://localhost:3000/api/restaurant/${slug}/availability`,
         {
           params: {
             day,
