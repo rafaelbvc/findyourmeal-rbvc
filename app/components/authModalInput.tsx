@@ -42,7 +42,7 @@ function AuthModalInput({
       )}
       <div className="my-3 flex justify-between text-sm">
         <input
-          type="text"
+          type="email"
           placeholder="E-mail"
           className="border p-2 py-3 w-full rounded"
           value={inputData.email}
@@ -53,13 +53,14 @@ function AuthModalInput({
       {isSignin ? null : (
         <div className="my-3 flex justify-between text-sm ">
           <input
-            type="text"
+            type="tel"
             placeholder="Phone"
             className="border p-2 py-3 w-[49%] rounded"
             value={inputData.phone}
             onChange={handleChangeInput}
             name="phone"
           />
+
           <input
             type="text"
             placeholder="City"
