@@ -69,7 +69,7 @@ const useAuth = () => {
     });
     try {
       const response = await axios.post(
-        "https://rvbvcopentablenextjs.vercel.app//api/auth/signup",
+        "https://rvbvcopentablenextjs.vercel.app/api/auth/signup",
         // "https://localhost:3000",
         {
           firstName,
