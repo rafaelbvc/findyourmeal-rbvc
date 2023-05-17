@@ -14,14 +14,15 @@ function NavBar() {
   const { signout } = useAuth();
 
   return (
-    <nav className="bg-white p-2 flex justify-between">
+    <nav className="bg-white py-2 px-3">
+      <div className="column md:flex md:w-full md:justify-between lg:justify-between lg:flex lg:w-full">
       <Link
         href="/"
         className="pl-1 font-bold text-gray-700 text-2xl hover:text-gray-500"
       >
         OpenTable{" "}
       </Link>
-      <div className="ml-[50rem] mr-[2rem] flex justify-between  w-[18rem]">
+      <div className="flex w-[18rem] sm:justify-between md:flex lg:flex md:w-[18rem] lg:w-[18rem] md:justify-between lg:justify-between">
         <p className="pl-1 font-bold text-gray-700 text-2xl hover:text-gray-500">
           Rafael Vendramini
         </p>
@@ -45,7 +46,7 @@ function NavBar() {
             className="w-[2.1rem] h-[2.1rem]"
           />
         </Link>
-      </div>
+        </div>
       <div>
         {loading ? null : (
           <div className="flex">
@@ -64,6 +65,7 @@ function NavBar() {
             )}
           </div>
         )}
+      </div>
       </div>
     </nav>
   );
