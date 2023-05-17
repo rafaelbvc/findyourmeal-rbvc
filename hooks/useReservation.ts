@@ -30,12 +30,10 @@ export default function useReservation() {
     bookerRequest: string;
     setBook: Dispatch<SetStateAction<boolean>>;
   }) => {
-    console.log({ day, slug, time, partySize });
     setLoading(true);
     try {
       const response = await axios.post(
-        `https://rvbvcopentablenextjs.vercel.app/api/restaurant/${slug}/reserve`,
-        // "https://localhost:3000",
+        `http://localhost:3000/api/restaurant/${slug}/reserve`,
         {
           bookerFirstName,
           bookerLastName,
