@@ -40,8 +40,7 @@ export default function AuthContext({
         });
       }
       const response = await axios.get(
-        "https://rvbvcopentablenextjs.vercel.app/api/auth/authenticated",
-        // "https://localhost:3000",
+        "http://localhost:3000/api/auth/authenticated",
         { headers: { Authorization: `Bearer ${jwt}` } }
       );
 
