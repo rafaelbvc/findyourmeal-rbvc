@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PRICE, PrismaClient } from "@prisma/client";
 
@@ -1322,7 +1321,5 @@ export default async function handler(
     ],
   });
 
-  res.status(200).json({ name: "success" });
+  res.status(200).json({ name: "success seeded" });
 }
-
-//vivaan-fine-indian-cuisine-ottawa

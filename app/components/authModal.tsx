@@ -9,20 +9,6 @@ import { AuthenticationContext } from "../context/AuthContext";
 import LinearDeterminate from "./loadingMui";
 import { Alert } from "@mui/material";
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "25rem",
-  height: "40rem",
-  bgcolor: "background.paper",
-  border: "0.1rem solid #000",
-  boxShadow: "25rem",
-  p: 4,
-  textAlign: "center",
-};
-
 export default function AuthModal({ isSignin }: { isSignin: boolean }) {
   const { signin, signup } = useAuth();
   const { loading, error } = useContext(AuthenticationContext);
@@ -38,6 +24,15 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     city: "",
     password: "",
   });
+  const validEmail = new RegExp(
+    "^[A-Za-z0-9_!#$%&'*+/=?`{|}~^.-]+@[A-Za-z0-9.-]+$"
+  );
+  const validPhone = new RegExp(
+    "([0-9]{2,3})?(([0-9]{2}))([0-9]{4,5})([0-9]{4})"
+  );
+  const validPassword = new RegExp(
+    "^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,15}$"
+  );
 
   const handleSigninSignup = (signInContent: string, signUpContent: string) => {
     return isSignin ? signInContent : signUpContent;
@@ -71,15 +66,23 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
         inputData.firstName &&
         inputData.lastName &&
         inputData.city &&
-        inputData.phone &&
-        inputData.email &&
-        inputData.password
+        validPhone.test(inputData.phone) &&
+        validEmail.test(inputData.email) &&
+        validPassword.test(inputData.password)
       ) {
         return setDisabled(false);
       }
     }
     return setDisabled(true);
   }, [inputData]);
+
+  console.log(
+    inputData,
+    validPhone.test(inputData.phone),
+    validEmail.test(inputData.email),
+    validPassword.test(inputData.password),
+    "from console"
+  );
 
   return (
     <div>
@@ -134,6 +137,17 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
                 >
                   {handleSigninSignup("Sign In", "Create Account")}
                 </button>
+                {validEmail.test(inputData.email) === false ? (
+                  <div className="text-red-600 text-reg">Invalid Email</div>
+                ) : validPhone.test(inputData.phone) === false ? (
+                  <div className="text-red-600 text-reg">Invalid Phone</div>
+                ) : validPassword.test(inputData.password) === false ? (
+                  <div className="text-red-600 text-reg">
+                    Password must contain at least eight characters, one
+                    uppercase letter, one lowercase letter, one number and one
+                    special character
+                  </div>
+                ) : null}
               </div>
             </div>
           )}
@@ -142,3 +156,17 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     </div>
   );
 }
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "25rem",
+  height: "40rem",
+  bgcolor: "background.paper",
+  border: "0.1rem solid #000",
+  boxShadow: "25rem",
+  p: 4,
+  textAlign: "center",
+};

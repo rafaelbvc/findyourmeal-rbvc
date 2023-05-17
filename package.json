@@ -1,6 +1,6 @@
 {
   "name": "rbvcopentablenextjs",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -44,6 +44,6 @@
     "typescript": "^5.0.4"
   },
   "prisma": {
-    "seed": " ts-node ./pages/api/seed.ts"
+    "seed": "ts-node ./pages/api/seed.ts"
   }
 }
