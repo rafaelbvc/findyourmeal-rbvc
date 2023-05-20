@@ -5,6 +5,7 @@ import { getCookie } from "cookies-next";
 import axios from "axios";
 import { State } from "../interfaces/interfaceState";
 import { AuthState } from "../interfaces/interfaceAuthState";
+import { exportUrls } from "../../utils/exportUrls";
 
 export const AuthenticationContext = createContext<AuthState>({
   loading: false,
@@ -39,10 +40,9 @@ export default function AuthContext({
           loading: false,
         });
       }
-      const response = await axios.get(
-        "http://localhost:3000/api/auth/authenticated",
-        { headers: { Authorization: `Bearer ${jwt}` } }
-      );
+      const response = await axios.get(exportUrls.apiAuthenticatedDev, {
+        headers: { Authorization: `Bearer ${jwt}` },
+      });
 
       axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
 

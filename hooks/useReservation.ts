@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import axios from "axios";
+import { exportUrls } from "../utils/exportUrls";
 
 export default function useReservation() {
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,7 @@ export default function useReservation() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/restaurant/${slug}/reserve`,
+        `${exportUrls.apiRestaurantSlugReserve}`,
         {
           bookerFirstName,
           bookerLastName,

@@ -2,6 +2,7 @@ import axios from "axios";
 import { AuthenticationContext } from "../app/context/AuthContext";
 import { useContext } from "react";
 import { removeCookies } from "cookies-next";
+import { exportUrls } from "../utils/exportUrls";
 
 const useAuth = () => {
   const { setAuthState } = useContext(AuthenticationContext);
@@ -23,7 +24,7 @@ const useAuth = () => {
     });
     try {
       const response = await axios.post(
-        "https://rvbvcopentablenextjs.vercel.app/api/auth/signin",
+        exportUrls.apiAuthSigninDev,
         {
           email,
           password,
@@ -69,7 +70,7 @@ const useAuth = () => {
     });
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/signup",
+        exportUrls.apiSignupDev,
         {
           firstName,
           lastName,
