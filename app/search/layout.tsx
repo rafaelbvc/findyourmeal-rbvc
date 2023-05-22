@@ -16,5 +16,5 @@ export default function SearchLayout({
 }
 
 export const metadata = {
-  title: "Search Restaurants | OpenTable | Clone",
+  title: "Search Restaurants | OpenTable | Custom",
 };

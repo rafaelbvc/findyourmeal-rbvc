@@ -8,16 +8,14 @@ import useAuth from "../../hooks/useAuth";
 import Image from "next/image";
 import GitIcon from "../../public/icons/icons8-github-192.svg";
 import LinkedInIcon from "../../public/icons/icons8-linkedin-128.svg";
-import {exportUrls} from "../../utils/exportUrls"
-
+import { exportUrls } from "../../utils/exportUrls";
 
 function NavBar() {
   const { data, loading } = useContext(AuthenticationContext);
   const { signout } = useAuth();
 
-
   return (
-    <nav className="bg-white py-2 px-3">
+    <nav className="bg-white py-2 px-3 ">
       <div className="column md:flex md:w-full md:justify-between lg:justify-between lg:flex lg:w-full">
         <Link
           href="/"
@@ -25,7 +23,7 @@ function NavBar() {
         >
           OpenTable{" "}
         </Link>
-        <div className="sm:hidden flex w-[18rem] sm:justify-between md:flex lg:flex md:w-[18rem] lg:w-[18rem] md:justify-between lg:justify-between">
+        <div className="hidden w-[18rem] sm:justify-between md:flex lg:flex md:w-[18rem] lg:w-[18rem] md:justify-between lg:justify-between">
           <p className="pl-1 font-bold text-gray-700 text-2xl hover:text-gray-500">
             Rafael Vendramini
           </p>
@@ -37,10 +35,7 @@ function NavBar() {
               className="w-[2rem] h-[2rem]"
             />
           </Link>
-          <Link
-            href={exportUrls.linkedin}
-            target="blank"
-          >
+          <Link href={exportUrls.linkedin} target="blank">
             <Image
               src={LinkedInIcon}
               alt="LinkedIn Icon"

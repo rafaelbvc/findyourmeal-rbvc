@@ -5,11 +5,11 @@ module.exports = {
     extend: {},
     screens: {
       sm: "320px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      md: "769px",
+      lg: "1025px",
+      xlg: "1280px",
     },
+
     fontSize: {
       "2xsm": "10px",
       xsm: "12px",
