@@ -17,6 +17,7 @@ module.exports = {
       reg: "15px",
       lg: "18px",
       xl: "20px",
+      "1xl": "21px",
       "2xl": "22px",
       "3xl": "25px",
       "4xl": "32px",
