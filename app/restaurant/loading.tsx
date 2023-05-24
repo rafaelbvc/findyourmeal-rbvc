@@ -3,7 +3,7 @@ import React from "react";
 function LoadingRestaurant() {
   return (
     <main>
-      <div className="h-96 overflow-hidden animate-pulse bg-slate-200">
+      <div className="h-96 overflow-hidden animate-pulse  bg-slate-200">
         <div className={`bg-center h-full`} />
       </div>
       <div className="flex  m-auto w-2/3 justify-between items-start 0 -mt-9">
