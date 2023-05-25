@@ -16,7 +16,7 @@ function NavBare() {
   const [getWidth, setGetWidth] = useState(0);
   const { data, loading } = useContext(AuthenticationContext);
   const { signout } = useAuth();
-  const [hamb, setHamb] = useState("");
+  const [menu, setMenu] = useState("");
   const [hiddenFlex, setHiddenFlex] = useState("hidden");
   const [displayContent, setDisplayContent] = useState(styles.handleStyles.closeSM);
 
@@ -25,10 +25,12 @@ function NavBare() {
   });
 
   useEffect(() => {
-    hiddenFlex;
+
     displayContent;
-    hamb;
-  });
+    menu;
+    hiddenFlex;
+    console.log("re")
+  },);
 
   return (
     <nav
@@ -45,13 +47,13 @@ function NavBare() {
             OpenTable
           </p>
         </Link>
-        <div className={`${!hiddenFlex} sm:${hamb} order-2`}>
+        <div className={`${!hiddenFlex} ${menu} order-2`}>
           <div
             className={`${styles.returnStyles.divHambMenu}`}
             onClick={() => {
               setHiddenFlex("flex");
               setDisplayContent(styles.handleStyles.openSM);
-              setHamb("hidden");
+              setMenu("hidden");
             }}
           >
             <div className={`leading-[8px] ${styles.returnStyles.divHambMenuItem} pl-1`}>
@@ -70,7 +72,7 @@ function NavBare() {
           onClick={() => {
             setHiddenFlex("hidden");
             setDisplayContent(styles.handleStyles.closeSM);
-            setHamb("");
+            setMenu("");
           }}
         >
           <p className={`${styles.returnStyles.pHambMenuX}`}>
@@ -99,9 +101,8 @@ function NavBare() {
           <Image src={LinkedInIcon} alt="LinkedIn Icon" />
         </Link>
       </div>
-
       <div
-        className={`sm:${hiddenFlex} ${styles.returnStyles.divSignInUp}`}
+        className={`${hiddenFlex} ${styles.returnStyles.divSignInUp}`}
       >
         {loading ? null : (
           <>
