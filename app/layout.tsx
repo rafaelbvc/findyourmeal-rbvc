@@ -1,7 +1,7 @@
 // import NavBar from "./components/NavBar";
 import "./globals.css";
 import AuthContext from "./context/AuthContext";
-import NavBare from "./components/NavBare";
+import NavBar from "./components/NavBar";
 
 async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -18,8 +18,8 @@ async function RootLayout({ children }: { children: React.ReactNode }) {
       <body>
         <main className="bg-gray-100 min-h-screen w-screen">
           <AuthContext>
-            <main className="max-w-screen-xlg m-auto bg-white">
-              <NavBare />
+            <main className="max-w-screen-xlg mx-auto bg-white ">
+              <NavBar/>
               {children}
             </main>
           </AuthContext>
