@@ -24,7 +24,8 @@ const useAuth = () => {
     });
     try {
       const response = await axios.post(
-        exportUrls.apiAuthSigninDev,
+        // exportUrls.apiAuthSigninDev,
+        exportUrls.apiAuthSigninProd,
         {
           email,
           password,
@@ -70,7 +71,8 @@ const useAuth = () => {
     });
     try {
       const response = await axios.post(
-        exportUrls.apiSignupDev,
+        // exportUrls.apiSignupDev,
+        exportUrls.apiSignupProd,
         {
           firstName,
           lastName,

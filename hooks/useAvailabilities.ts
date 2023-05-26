@@ -24,7 +24,8 @@ export default function useAvailabilities() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${exportUrls.apiRestaurantSlugAvailabilityDev}`,
+        // `${exportUrls.apiRestaurantSlugAvailabilityDev}`,
+        `${exportUrls.apiRestaurantSlugAvailabilityProd}`,
         {
           params: {
             day,

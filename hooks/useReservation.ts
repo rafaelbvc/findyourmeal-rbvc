@@ -34,7 +34,8 @@ export default function useReservation() {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${exportUrls.apiRestaurantSlugReserve}`,
+        // `${exportUrls.apiRestaurantSlugReserveDev}`,
+        `${exportUrls.apiRestaurantSlugReserveProd}`,
         {
           bookerFirstName,
           bookerLastName,
