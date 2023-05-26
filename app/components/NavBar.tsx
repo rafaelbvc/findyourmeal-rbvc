@@ -55,14 +55,14 @@ function NavBare() {
               setMenu("hidden");
             }}
           >
-            <div className={`leading-[8px] ${styles.returnStyles.divHambMenuItem} pl-1`}>
-              -
+            <div className={`${styles.returnStyles.divHambMenuItem}`}>
+              |
             </div>
-            <div className={`leading-[1px] ${styles.returnStyles.divHambMenuItem}`}>
-              -
+            <div className={`${styles.returnStyles.divHambMenuItem}`}>
+              |
             </div>
-            <div className={`leading-[0.1px] ${styles.returnStyles.divHambMenuItem} pl-1`}>
-              -
+            <div className={`${styles.returnStyles.divHambMenuItem}`}>
+              |
             </div>
           </div>
         </div>
