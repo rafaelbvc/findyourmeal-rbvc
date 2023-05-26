@@ -80,8 +80,8 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     <div>
       <button
         className={`${handleSigninSignup(
-          "text-white bg-blue-400 hover:bg-gray-200 rounded max-w-sm  py-1 px-3 mr-1 sm:min-w-[9.5rem] sm:max-w-[12.2rem] md:min-w-[6.249rem] md:max-w-[6.25rem]",
-          "text-white bg-gray-300 hover:bg-blue-200 rounded max-w-sm  py-1 px-3 ml-1 sm:min-w-[9.5rem] sm:max-w-[12.2rem] md:min-w-[6.249rem] md:max-w-[6.25rem]"
+          "text-white bg-blue-400 hover:bg-gray-200 rounded max-w-sm  py-1 px-3 mx-1 sm:min-w-[9.45rem] sm:max-w-[12.2rem] md:min-w-[6.249rem] md:max-w-[6.25rem]",
+          "text-white bg-gray-300 hover:bg-blue-200 rounded max-w-sm  py-1  sm:min-w-[9.45rem] sm:max-w-[12.2rem] md:min-w-[6.249rem] md:max-w-[6.25rem]"
         )} `}
         onClick={handleOpen}
       >

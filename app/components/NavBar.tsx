@@ -25,16 +25,15 @@ function NavBare() {
   });
 
   useEffect(() => {
-
     displayContent;
     menu;
     hiddenFlex;
-    console.log("re")
   },);
 
   return (
+    // <div className="fixed bg-white">
     <nav
-      className={`sm:${displayContent} ${styles.returnStyles.navMain}`}
+      className={`${displayContent} ${styles.returnStyles.navMain}`}
     >
       <div className={`${styles.returnStyles.divOpenTable}`}>
         <Link href="/" className={`${styles.returnStyles.linkOpenTable}`}>
@@ -123,6 +122,7 @@ function NavBare() {
         )}
       </div>
     </nav>
+    // </div>
   );
 }
 

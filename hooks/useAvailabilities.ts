@@ -21,7 +21,6 @@ export default function useAvailabilities() {
     day: string;
     time: string;
   }) => {
-    console.log({ day, slug, time, partySize });
     setLoading(true);
     try {
       const response = await axios.get(
