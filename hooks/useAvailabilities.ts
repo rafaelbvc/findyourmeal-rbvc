@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Time } from "../utils/convertToDisplayTime";
+import { exportUrls } from "../utils/exportUrls";
 
 export default function useAvailabilities() {
   const [loading, setLoading] = useState(false);
@@ -20,11 +21,10 @@ export default function useAvailabilities() {
     day: string;
     time: string;
   }) => {
-    console.log({ day, slug, time, partySize });
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/restaurant/${slug}/availability`,
+        `${exportUrls.apiRestaurantSlugAvailabilityDev}`,
         {
           params: {
             day,

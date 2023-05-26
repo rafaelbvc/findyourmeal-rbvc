@@ -52,9 +52,9 @@ export default async function SignInHandler(
     if (!isMatch) {
       return res
         .status(401)
-        .json({ errorMessage: "Email of password is invalid" });
+        .json({errorMessage: "Email or password is invalid"});
     }
-
+ 
     const alg = "HS256";
 
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);

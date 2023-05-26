@@ -80,9 +80,9 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     <div>
       <button
         className={`${handleSigninSignup(
-          "bg-blue-400 text-white hover:bg-blue-500",
-          ""
-        )} border p-1 px-4 rounded mr-3  hover:bg-gray-100`}
+          "text-white bg-blue-400 hover:bg-gray-200 rounded max-w-sm  py-1 px-3 mx-1 sm:min-w-[9.45rem] sm:max-w-[12.2rem] md:min-w-[6.249rem] md:max-w-[6.25rem]",
+          "text-white bg-gray-300 hover:bg-blue-200 rounded max-w-sm  py-1  sm:min-w-[9.45rem] sm:max-w-[12.2rem] md:min-w-[6.249rem] md:max-w-[6.25rem]"
+        )} `}
         onClick={handleOpen}
       >
         {handleSigninSignup("Sign in", "Sign up")}
@@ -129,11 +129,16 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
                 >
                   {handleSigninSignup("Sign In", "Create Account")}
                 </button>
-                {inputData.email.length && validEmail.test(inputData.email) === false && isSignin === false? (
+                {inputData.email.length &&
+                validEmail.test(inputData.email) === false &&
+                isSignin === false ? (
                   <div className="text-red-600 text-reg">Invalid Email</div>
-                ) : inputData.phone && validPhone.test(inputData.phone) === false ? (
+                ) : inputData.phone &&
+                  validPhone.test(inputData.phone) === false ? (
                   <div className="text-red-600 text-reg">Invalid Phone</div>
-                ) : inputData.password && validPassword.test(inputData.password) === false && isSignin === false? (
+                ) : inputData.password &&
+                  validPassword.test(inputData.password) === false &&
+                  isSignin === false ? (
                   <div className="text-red-600 text-reg">
                     Password must contain at least eight characters, one
                     uppercase letter, one lowercase letter, one number and one
