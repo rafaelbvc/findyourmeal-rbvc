@@ -40,7 +40,8 @@ export default function AuthContext({
           loading: false,
         });
       }
-      const response = await axios.get(exportUrls.apiAuthenticatedDev, {
+      // const response = await axios.get(exportUrls.apiAuthenticatedDev, {
+      const response = await axios.get(exportUrls.apiAuthenticatedProd, {
         headers: { Authorization: `Bearer ${jwt}` },
       });
 

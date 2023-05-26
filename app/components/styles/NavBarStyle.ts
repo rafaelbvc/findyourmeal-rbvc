@@ -12,7 +12,7 @@ export const returnStyles = {
     divHambMenu: "grid grid-rows-3 hover:animate-pulse hover:transition hover:duration-1000 hover:ease-in-out h-[1.75rem] w-[1.75rem] mt-[0.34rem] mr-1  cursor-pointer border border-gray-400 bg-white hover:bg-gray-200 rounded md:hidden",
     divHambMenuItem: "text-gray-700 rounded font-medium hover:text-gray-800 rotate-90 leading-[-10px] ml-[1.48rem] text-xl",
     divHambMenuX: " h-[1.75rem] w-[1.75rem] hover:animate-pulse hover:transition hover:duration-1000 hover:ease-in-out order-2 mt-[0.34rem] mb-1  cursor-pointer border border-gray-400 rounded mr-1 md:hidden",
-    pHambMenuX: "leading-[3px]  self-center text-gray-700 hover:text-gray-800 ml-1   text-3xl pl-[0.15rem] font-extrabold font-mono",
+    pHambMenuX: "leading-[3px]  self-center text-gray-700 hover:text-gray-800 ml-1 text-3xl pl-[0.15rem] font-extrabold font-mono",
     divCredits: "justify-between w-full min-w-[20rem] max-w-[25rem] border-b-2 border-dotted order-3 md:border-0 md:flex md:min-w-[17.5rem] md:max-w-[18.125rem]",
     pDivCredits: "font-bold pl-1 text-1xl  self-center text-gray-700 hover:text-gray-800 md:flex ",
     imgDivCredits: "w-[2.25rem] h-[2.25rem] self-center flex",
