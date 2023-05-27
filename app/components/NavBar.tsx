@@ -10,7 +10,7 @@ import { exportUrls } from "../../utils/exportUrls";
 import { AuthenticationContext } from "../context/AuthContext";
 import useAuth from "../../hooks/useAuth";
 import AuthModal from "./authModal";
-import * as styles from "./styles/NavBarStyle"
+import * as styles from "./styles/NavBarStyles"
 
 function NavBare() {
   const [getWidth, setGetWidth] = useState(0);
@@ -18,7 +18,7 @@ function NavBare() {
   const { signout } = useAuth();
   const [menu, setMenu] = useState("");
   const [hiddenFlex, setHiddenFlex] = useState("hidden");
-  const [displayContent, setDisplayContent] = useState(styles.handleStyles.closeSM);
+  const [displayContent, setDisplayContent] = useState(styles.handleStylesNavBar.closeSM);
 
   useLayoutEffect(() => {
     setGetWidth(window.innerWidth);
@@ -33,81 +33,81 @@ function NavBare() {
   return (
     // <div className="fixed bg-white">
     <nav
-      className={`${displayContent} ${styles.returnStyles.navMain}`}
+      className={`${displayContent} ${styles.returnStylesNavBar.navMain}`}
     >
-      <div className={`${styles.returnStyles.divOpenTable}`}>
-        <Link href="/" className={`${styles.returnStyles.linkOpenTable}`}>
+      <div className={`${styles.returnStylesNavBar.divOpenTable}`}>
+        <Link href="/" className={`${styles.returnStylesNavBar.linkOpenTable}`}>
           <Image
             src={TableIcon}
             alt="Table Icon"
-            className={`${styles.returnStyles.imgOpenTable}`}
+            className={`${styles.returnStylesNavBar.imgOpenTable}`}
           ></Image>
-          <p className={`${styles.returnStyles.pOpenTable}`}>
+          <p className={`${styles.returnStylesNavBar.pOpenTable}`}>
             OpenTable
           </p>
         </Link>
         <div className={`${!hiddenFlex} ${menu} order-2`}>
           <div
-            className={`${styles.returnStyles.divHambMenu}`}
+            className={`${styles.returnStylesNavBar.divHambMenu}`}
             onClick={() => {
               setHiddenFlex("flex");
-              setDisplayContent(styles.handleStyles.openSM);
+              setDisplayContent(styles.handleStylesNavBar.openSM);
               setMenu("hidden");
             }}
           >
-            <div className={`${styles.returnStyles.divHambMenuItem}`}>
+            <div className={`${styles.returnStylesNavBar.divHambMenuItem}`}>
               |
             </div>
-            <div className={`${styles.returnStyles.divHambMenuItem}`}>
+            <div className={`${styles.returnStylesNavBar.divHambMenuItem}`}>
               |
             </div>
-            <div className={`${styles.returnStyles.divHambMenuItem}`}>
+            <div className={`${styles.returnStylesNavBar.divHambMenuItem}`}>
               |
             </div>
           </div>
         </div>
         <div
-          className={`${hiddenFlex} ${styles.returnStyles.divHambMenuX}`}
+          className={`${hiddenFlex} ${styles.returnStylesNavBar.divHambMenuX}`}
           onClick={() => {
             setHiddenFlex("hidden");
-            setDisplayContent(styles.handleStyles.closeSM);
+            setDisplayContent(styles.handleStylesNavBar.closeSM);
             setMenu("");
           }}
         >
-          <p className={`${styles.returnStyles.pHambMenuX}`}>
+          <p className={`${styles.returnStylesNavBar.pHambMenuX}`}>
             X
           </p>
         </div>
       </div>
       <div
-        className={`${hiddenFlex} ${styles.returnStyles.divCredits}`}
+        className={`${hiddenFlex} ${styles.returnStylesNavBar.divCredits}`}
       >
-        <p className={`${styles.returnStyles.pDivCredits}`}>
+        <p className={`${styles.returnStylesNavBar.pDivCredits}`}>
           Rafael Vendramini
         </p>
         <Link
           href={exportUrls.github}
           target="blank"
-          className={`${styles.returnStyles.imgDivCredits}`}
+          className={`${styles.returnStylesNavBar.imgDivCredits}`}
         >
           <Image src={GitIcon} alt="GitHubIcon Icon" />
         </Link>
         <Link
           href={exportUrls.linkedin}
           target="blank"
-          className={`${styles.returnStyles.imgDivCredits}`}
+          className={`${styles.returnStylesNavBar.imgDivCredits}`}
         >
           <Image src={LinkedInIcon} alt="LinkedIn Icon" />
         </Link>
       </div>
       <div
-        className={`${hiddenFlex} ${styles.returnStyles.divSignInUp}`}
+        className={`${hiddenFlex} ${styles.returnStylesNavBar.divSignInUp}`}
       >
         {loading ? null : (
           <>
             {data ? (
               <button
-                className={`${styles.returnStyles.buttonSignout}`}
+                className={`${styles.returnStylesNavBar.buttonSignout}`}
                 onClick={signout}
               >
                 Sign out
