@@ -1,9 +1,9 @@
-export const handleStyles = {
+export const handleStylesNavBar = {
   openSM: "grid grid-rows-3  place-content-center whitespace-nowrap",
   closeSM: "flex justify-between h-[40px] ",
 };
 
-export const returnStyles = {
+export const returnStylesNavBar = {
     navMain: "sm:min-w-[20rem] mx-auto sm:max-w-[25rem] md:flex md:justify-between md:min-w-[48.0625rem] md:max-w-[80rem] md:ml-1",
     divOpenTable: "container flex justify-between sm:min-w-[20rem] sm:max-w-[25rem] border-b-2 border-dotted md:border-0 md:min-w-[12.5rem] md:max-w-[13.5rem]",
     linkOpenTable: "order-1 self-center pl-1 flex",
