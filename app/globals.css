@@ -2,3 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-4%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(180deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear forwards;
+}
+
+.basis {
+  @apply container flex justify-center min-h-screen w-screen mx-auto;
+}
+
+.onlyBeforeSM {
+  @apply flex flex-grow justify-end sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden;
+}
+
+.afterSM {
+  @apply hidden sm:flex md:flex lg:flex xl:flex 2xl:flex;
+}
+
+.afterLG {
+  @apply hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex;
+}
+
+.onlyMD {
+  @apply hidden sm:hidden md:flex lg:hidden xl:hidden 2xl:hidden;
+}
+
+.pTitles {
+  @apply text-gray-700 hover:text-gray-800 font-bold text-2xl my-auto;
+}

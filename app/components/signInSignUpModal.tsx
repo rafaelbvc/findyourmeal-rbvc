@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 
-function signInSignUpModal(param : boolean) {
-
-
-
+function signInSignUpModal(param: boolean) {
   return (
-    <div className="absolute sm:min-w-[20rem] sm:max-w-[25rem] sm:h-auto sm:p-3">
+    <div className="fixed sm:min-w-[20rem] sm:max-w-[25rem] sm:h-auto sm:p-3">
       <div>
         <p>Title</p>
         <input />

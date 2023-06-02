@@ -9,15 +9,15 @@ import { AuthenticationContext } from "../context/AuthContext";
 import LinearDeterminate from "./loadingMui";
 import { Alert } from "@mui/material";
 import signInSignUpModal from "./signInSignUpModal";
+import ThemeBtn from "./buttons/ThemeBtn";
+import ModalOpenBtn from "./buttons/ModalOpenBtn";
 
 export default function AuthModal({ isSignin }: { isSignin: boolean }) {
   const { signin, signup } = useAuth();
   const { loading, error } = useContext(AuthenticationContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setIsVisible(true);
-  // const handleOpen = () => setOpen(true);
   const handleClose = () => setIsVisible(false);
-  // const handleClose = () => setOpen(false);
   const [disabled, setDisabled] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const [inputData, setInputData] = useState({
@@ -38,8 +38,29 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     "^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,15}$"
   );
 
-  const handleSigninSignup = (signInContent: string, signUpContent: string) => {
-    return isSignin ? signInContent : signUpContent;
+  const handleSigninSignup = (renderBtn: boolean, isBtn: boolean) => {
+    if (renderBtn && isBtn) {
+      return (
+        <ThemeBtn
+          tColor="white"
+          colorBtn="blue"
+          text="Sign In"
+          onClick={handleOpen}
+        />
+      );
+    } else if (!renderBtn && isBtn) {
+      return (
+        <ThemeBtn
+          tColor="white"
+          colorBtn="gray"
+          text="Sign Up"
+          onClick={handleOpen}
+        />
+      );
+    } else if (renderBtn && !isBtn) {
+      return "Log Into Your Account";
+    }
+    return "Create Your OpenTable Account";
   };
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,33 +104,22 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
   return (
     <>
       <div>
-        <button
-          className={`${handleSigninSignup(
-            "text-white bg-blue-400 hover:bg-gray-200 rounded max-w-sm  py-1 px-3 mx-1 sm:min-w-[9.45rem] sm:max-w-[12.2rem] md:min-w-[6.249rem] md:max-w-[6.25rem]",
-            "text-white bg-gray-300 hover:bg-blue-200 rounded max-w-sm  py-1  sm:min-w-[9.45rem] sm:max-w-[12.2rem] md:min-w-[6.249rem] md:max-w-[6.25rem]"
-          )} `}
-          // onClick={handleOpen}
-          onClick={handleOpen}
-        >
-          {handleSigninSignup("Sign in", "Sign up")}
-        </button>
+        {handleSigninSignup(isSignin, true)}
+
         {/* <signInSignUpModal /> */}
       </div>
       {!isVisible ? null : (
         // <div className="flex justify-center w-screen h-screen bg-transparent z-999 float" onClick={handleClose}>
-        <div className=" md:hidden absolute rounded  translate-x-[-50%] translate-y-[-50%] mt-[50%] ml-[50%]  sm:w-[19rem] sm:h-[26rem] sm:p-3  bg-white">
+        <div className="fixed rounded translate-x-[-50%] translate-y-[-50%]   mt-[50%] ml-[50%]  sm:w-[19rem] sm:h-[26rem] sm:p-3  bg-white">
           <div>
             <h2 className="text-2xl sm:text-reg font-light text-center">
-              {handleSigninSignup(
-                "Log Into Your Account",
-                "Create Your OpenTable Account"
-              )}
+              {handleSigninSignup(isSignin, false)}
             </h2>
             <input />
             <button onClick={handleClose}>click me!</button>
           </div>
         </div>
-      //  </div>
+        //  </div>
       )}
     </>
   );
