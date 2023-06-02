@@ -1,6 +1,6 @@
-# Project for my portifolium, custom OpenTable - Rafael Vendramini
+# Project for my portifolium, FindYourMeal - Rafael Vendramini
 
-# Hosted at Vercel - https://rvbvcopentablenextjs-6tlkiytao-rafaelbvc.vercel.app/
+# Hosted at Vercel -
 
 # Only restaurant Vivaan - Fine Indian is populated with tables
 

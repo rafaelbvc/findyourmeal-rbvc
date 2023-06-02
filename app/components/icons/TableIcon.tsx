@@ -1,15 +1,23 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="924.000000pt" height="1280.000000pt" viewBox="0 0 924.000000 1280.000000"
- preserveAspectRatio="xMidYMid meet">
-<metadata>
-Created by potrace 1.15, written by Peter Selinger 2001-2017
-</metadata>
-<g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-<path d="M1700 12780 c-91 -27 -353 -158 -427 -214 -191 -144 -330 -375 -389
+import React from "react";
+
+function TableIcon() {
+  return (
+    <div className="flex my-auto px-1">
+      <svg
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.4rem"
+        height="1.7rem"
+        viewBox="0 0 924.000000 1280.000000"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <g
+          transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+          fill="#000000"
+          stroke="none"
+        >
+          <path
+            d="M1700 12780 c-91 -27 -353 -158 -427 -214 -191 -144 -330 -375 -389
 -648 -25 -116 -30 -415 -8 -519 9 -46 17 -129 18 -184 1 -89 5 -108 30 -159
 29 -59 66 -91 117 -102 15 -4 32 -17 39 -30 7 -13 37 -39 67 -59 30 -20 57
 -43 60 -51 3 -9 -2 -63 -12 -122 -36 -224 -99 -354 -198 -410 -82 -47 -158
@@ -143,6 +151,13 @@ l133 -6 19 -72 c10 -39 24 -91 32 -115 31 -92 159 -797 151 -836 -4 -20 -26
 22 -142 27 -194 6 -52 14 -113 17 -136 l5 -41 -113 -7 c-103 -6 -457 -48 -518
 -62 l-25 -6 30 33 c46 49 115 89 152 89 43 0 107 32 130 66 10 15 37 47 59 73
 62 69 102 137 115 198 11 47 17 57 48 73 20 11 40 18 46 16 5 -1 18 -47 27
--102z" fill="#BB0000"/>
-</g>
-</svg>
+-102z"
+            fill="#BB0000"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+export default TableIcon;

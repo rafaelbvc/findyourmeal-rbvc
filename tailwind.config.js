@@ -1,41 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-    screens: {
-      sm: "320px",
-      md: "768px",
-      lg: "1024px",
-      xlg: "1280px",
-    },
-
-    fontSize: {
-      "3xsm": "9px",
-      "2xsm": "10px",
-      "1xsm": "11px",
-      xsm: "12px",
-      sm: "13px",
-      reg: "15px",
-      md: "17px",
-      lg: "18px",
-      xlg: "19px",
-      xl: "20px",
-      "1xl": "21px",
-      "2xl": "22px",
-      "3xl": "25px",
-      "4xl": "28px",
-      "5xl": "32px",
-      "6xl": "34px",
-      "7xl": "36px",
-      "8xl": "38px",
-      "9xl": "40px",
-      "10xl": "44px",
-      "11xl": "48px",
-      "12xl": "52px",
-      "13xl": "58px",
-      "14xl": "64px",
-    },
-  },
+  theme: {},
   plugins: [],
 };

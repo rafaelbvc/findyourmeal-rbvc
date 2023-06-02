@@ -1,24 +1,24 @@
 import "./globals.css";
 import AuthContext from "./context/AuthContext";
-import NavBar from "./components/NavBar";
+import NavBarcopy from "./components/NavBarcopy";
 
 async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>OpenTable | Custom</title>
+        <title>FindYourMeal</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta
-          name="OpenTable Custom"
+          name="FindYourMeal"
           content="A OpenTable custom by Rafael Vendramini"
         />
         <link rel="icon" href="/icons/favicon.ico" />
       </head>
       <body>
-        <main className="bg-gray-100 min-h-screen mx-auto ">
+        <main className="basis">
           <AuthContext>
-            <main className="max-w-screen-xlg mx-auto bg-white">
-              <NavBar/>
+            <main className="max-w-screen-2xl">
+              <NavBarcopy />
               {children}
             </main>
           </AuthContext>
