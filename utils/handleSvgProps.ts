@@ -1,4 +1,4 @@
-import ISvg from "../app/interfaces/InterfaceSvg";
+import ISvg from "../app/interfaces/ISvg";
 
 export const handleSVGWidth = ({ width }: ISvg) => {
   switch (width) {

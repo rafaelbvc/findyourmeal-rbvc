@@ -1,5 +1,5 @@
 import React from "react";
-import ISvg from "../../interfaces/InterfaceSvg";
+import ISvg from "../../interfaces/ISvg";
 import { handleSVGWidth, handleSVGColor } from "../../../utils/handleSvgProps";
 
 function GitHubIcon(props: ISvg) {

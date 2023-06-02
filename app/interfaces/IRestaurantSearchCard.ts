@@ -1,6 +1,6 @@
 import { Cuisine, PRICE, Review, Location } from "@prisma/client";
 
-export default interface RestaurantSearchCartdType {
+export default interface IRestaurantSearchCard {
   restaurant: {
     id: number;
     name: string;

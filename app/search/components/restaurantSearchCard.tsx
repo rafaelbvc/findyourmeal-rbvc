@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Price from "../../components/price";
-import RestaurantSearchCartdType from "../../interfaces/restaurantSearchCardType";
+import IRestaurantSearchCard from "../../interfaces/IRestaurantSearchCard";
 import { calculateReviewRatingAverage } from "../../../utils/calculateReviewRatingAverage";
 import stars from "../../components/stars";
 
-const RestaurantSearchCard = ({ restaurant }: RestaurantSearchCartdType) => {
+const RestaurantSearchCard = ({ restaurant }: IRestaurantSearchCard) => {
   const calculateRatingText = () => {
     const rating = calculateReviewRatingAverage(restaurant.reviews);
     if (rating > 4) return "Awesome";

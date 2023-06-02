@@ -1,8 +1,8 @@
 import { prisma } from "../utils/constants";
-import { SearchParamsType } from "../app/interfaces/searchParamsType";
+import { ISearchParams} from "../app/interfaces/IRearchParams";
 
 export const FetchRestaurantsByFilters = async (
-  searchParams: SearchParamsType
+  searchParams: ISearchParams
 ) => {
   const querySearch = await prisma.restaurant.findMany({
     where: {

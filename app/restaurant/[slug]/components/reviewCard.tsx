@@ -1,7 +1,7 @@
 import Stars from "../../../components/stars";
-import { ReviewCardType } from "../../../interfaces/reviewCardType";
+import { IReviewCard } from "../../../interfaces/IReviewCard";
 
-function ReviewCard({ review }: ReviewCardType) {
+function ReviewCard({ review }: IReviewCard) {
   return (
     <div className="border-b pb-7 mb-7">
       <div className="flex">

@@ -1,6 +1,6 @@
 import { Cuisine, Location, Review, PRICE } from "@prisma/client";
 
-export interface FetchRestaurantsByFiltersType {
+export interface IFetchRestaurantsByFilters {
   id: number;
   name: string;
   main_image: string;

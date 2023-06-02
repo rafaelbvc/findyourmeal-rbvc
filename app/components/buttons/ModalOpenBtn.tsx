@@ -1,6 +1,6 @@
 import React from "react";
 import { handleSVGWidth, handleSVGColor } from "../../../utils/handleSvgProps";
-import ISvg from "../../interfaces/InterfaceSvg";
+import ISvg from "../../interfaces/ISvg";
 
 let tablecloth = "#BB0000";
 

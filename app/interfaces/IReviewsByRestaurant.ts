@@ -1,6 +1,6 @@
 import { Restaurant, Review, User } from "@prisma/client";
 
-export interface ReviewsByRestaurantType {
+export interface IReviewsByRestaurant {
   id: number;
   first_name: string;
   last_name: string;

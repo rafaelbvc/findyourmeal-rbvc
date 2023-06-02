@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { RestaurantCardType } from "../interfaces/restaurantCardType";
+import { IRestaurantCard } from "../interfaces/IRestaurantCard";
 import Price from "./price";
 import Stars from "./stars";
 import { calculateReviewRatingAverage } from "../../utils/calculateReviewRatingAverage";
 
 interface Props {
-  restaurant: RestaurantCardType;
+  restaurant: IRestaurantCard;
 }
 
 export default function RestaurantCard({ restaurant }: Props) {

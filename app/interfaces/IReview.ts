@@ -1,4 +1,4 @@
-export interface ReviewType {
+export interface IReview {
   id: number;
   first_name: string;
   last_name: string;

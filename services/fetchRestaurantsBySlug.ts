@@ -1,9 +1,9 @@
-import FetchRestaurantBySlug from "../app/interfaces/restaurantBySlugType";
+import IRestaurantBySlug from "../app/interfaces/IRestaurantBySlug";
 import { prisma } from "../utils/constants";
 
 export const FetchRestaurantBySlug = async (
   slug: string
-): Promise<FetchRestaurantBySlug> => {
+): Promise<IRestaurantBySlug> => {
   const restaurant = await prisma.restaurant.findUnique({
     where: {
       slug,
