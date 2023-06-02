@@ -3,12 +3,9 @@
 import { useEffect, useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import AuthModalInput from "./authModalInput";
 import useAuth from "../../hooks/useAuth";
 import { AuthenticationContext } from "../context/AuthContext";
-import LinearDeterminate from "./loadingMui";
 import { Alert } from "@mui/material";
-import signInSignUpModal from "./signInSignUpModal";
 import ThemeBtn from "./buttons/ThemeBtn";
 import ModalOpenBtn from "./buttons/ModalOpenBtn";
 

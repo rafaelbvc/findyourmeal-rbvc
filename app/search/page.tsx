@@ -2,12 +2,12 @@ import Header from "../components/Header";
 
 import SearchSideBar from "./components/SearchSideBar";
 import { FetchRestaurantsByFilters } from "../../services/fetchRestaurantsByFilters";
-import { SearchParamsType } from "../interfaces/searchParamsType";
-import RestaurantSearchCard from "./components/restaurantSearchCard";
+import { ISearchParams } from "../interfaces/IRearchParams";
+import RestaurantSearchCard from "./components/RestaurantSearchCard";
 import { FetchLocations } from "../../services/fetchLocations";
 import { FetchCuisines } from "../../services/fetchCuisines";
 
-async function Search({ searchParams }: { searchParams: SearchParamsType }) {
+async function Search({ searchParams }: { searchParams: ISearchParams }) {
   const restaurants = await FetchRestaurantsByFilters(searchParams);
   const location = await FetchLocations();
   const cuisine = await FetchCuisines();

@@ -3,11 +3,11 @@
 import React, { useState, createContext, useEffect } from "react";
 import { getCookie } from "cookies-next";
 import axios from "axios";
-import { State } from "../interfaces/interfaceState";
-import { AuthState } from "../interfaces/interfaceAuthState";
+import { State } from "../interfaces/IState";
+import { IAuthState } from "../interfaces/IAuthState";
 import { exportUrls } from "../../utils/exportUrls";
 
-export const AuthenticationContext = createContext<AuthState>({
+export const AuthenticationContext = createContext<IAuthState>({
   loading: false,
   error: null,
   data: null,

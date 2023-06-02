@@ -1,6 +1,6 @@
 import { Review } from "@prisma/client";
 
-export default interface FetchRestaurantBySlug {
+export default interface IRestaurantBySlug {
   id: number;
   name: string;
   images: string[];

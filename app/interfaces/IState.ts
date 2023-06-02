@@ -1,7 +1,7 @@
-import { User } from "./interfaceUser";
+import { IUser } from "./IUser";
 
 export interface State {
     loading: boolean;
-    data: User | null;
+    data: IUser | null;
     error: string | null;
   }

@@ -4,12 +4,12 @@ import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthenticationContext } from "../context/AuthContext";
 import useAuth from "../../hooks/useAuth";
-import AuthModalcopy from "./authModalcopy";
 import TableIcon from "./icons/TableIcon";
 import GitHubIcon from "./icons/GitHubIcon";
 import LinkedInIcon from "./icons/LinkedInIcon";
 import ThemeBtn from "./buttons/ThemeBtn";
 import ModalOpenBtn from "./buttons/ModalOpenBtn";
+import AuthModalcopy from "./AuthModalcopy";
 
 function NavBare() {
   const { data, loading } = useContext(AuthenticationContext);

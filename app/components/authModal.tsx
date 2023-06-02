@@ -3,10 +3,10 @@
 import { useEffect, useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import AuthModalInput from "./authModalInput";
+import AuthModalInput from "./AuthModalInput";
 import useAuth from "../../hooks/useAuth";
 import { AuthenticationContext } from "../context/AuthContext";
-import LinearDeterminate from "./loadingMui";
+import LinearDeterminate from "./LoadingMui";
 import { Alert } from "@mui/material";
 
 export default function AuthModal({ isSignin }: { isSignin: boolean }) {

@@ -1,7 +1,7 @@
 import { Table } from ".prisma/client";
 import { times } from "../../data";
 import { prisma } from "../../utils/constants";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiResponse } from "next";
 
 export const findAvailableTables = async ({
   time,

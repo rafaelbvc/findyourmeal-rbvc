@@ -1,7 +1,7 @@
 import { prisma } from "../utils/constants";
-import { RestaurantCardType } from "../app/interfaces/restaurantCardType";
+import { IRestaurantCard } from "../app/interfaces/IRestaurantCard";
 
-export const FetchRestaurants = async (): Promise<RestaurantCardType[]> => {
+export const FetchRestaurants = async (): Promise<IRestaurantCard[]> => {
   const restaurants = await prisma.restaurant.findMany({
     select: {
       id: true,
