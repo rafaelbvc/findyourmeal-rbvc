@@ -42,6 +42,7 @@ function NavBare() {
                 tColor="white"
                 colorBtn="blue"
                 text="Sign Out"
+                resize="w-[6.25rem] h-[1.9rem] m-1 p-1"
                 onClick={signout}
                 className="order-3"
               />
