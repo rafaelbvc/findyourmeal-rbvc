@@ -42,6 +42,7 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
           tColor="white"
           colorBtn="blue"
           text="Sign In"
+          resize="w-[6.25rem] h-[1.9rem] m-1 p-1"
           onClick={handleOpen}
         />
       );
@@ -51,6 +52,7 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
           tColor="white"
           colorBtn="gray"
           text="Sign Up"
+          resize="w-[6.25rem] h-[1.9rem] m-1 p-1 "
           onClick={handleOpen}
         />
       );

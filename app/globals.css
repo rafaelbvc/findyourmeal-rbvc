@@ -49,3 +49,7 @@
 .pTitles {
   @apply text-gray-700 hover:text-gray-800 font-bold text-2xl my-auto;
 }
+
+.bgGradient {
+  @apply bg-gradient-to-r from-[#0f1f47] to-[#5f6984];
+}

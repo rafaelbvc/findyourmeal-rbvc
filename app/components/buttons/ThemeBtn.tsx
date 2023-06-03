@@ -2,9 +2,9 @@ import React, { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface IButtons extends ButtonHTMLAttributes<HTMLButtonElement> {
   colorBtn?: "blue" | "gray" | "red";
-  resize?: boolean;
+  resize?: string;
   hidden?: boolean;
-  text: string;
+  text?: string;
   tSize?: string;
   tColor?: "black" | "white";
   onClick?: () => void;
@@ -21,15 +21,22 @@ export const ThemeBtn = (props: IButtons) => {
     onClick,
   } = props;
 
+  const handleBtnColor = ({ colorBtn }: IButtons) => {
+    switch (colorBtn) {
+      case "gray":
+        return "bg-gray-400 hover:bg-blue-200";
+      case "red":
+        return "bg-red-600 hover:bg-red-700";
+      default:
+        return "bg-blue-400 hover:bg-gray-200";
+    }
+  };
+
   return (
     <button
-      className={`flex flex-center p-1 m-1 rounded h-[2rem] ${
-        colorBtn === "gray"
-          ? " bg-gray-400 hover:bg-blue-200"
-          : colorBtn === "red"
-          ? " bg-red-600 hover:bg-red-700"
-          : " bg-blue-400 hover:bg-gray-200"
-      } ${hidden ? " hidden" : ""} ${resize ? "w-full" : "w-[6.25rem]"}`}
+      className={`flex rounded ${handleBtnColor({ colorBtn })} ${
+        hidden ? " hidden" : ""
+      } ${resize}`}
       onClick={onClick}
     >
       <p
