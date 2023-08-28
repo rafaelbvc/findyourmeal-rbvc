@@ -1,11 +1,11 @@
 {
   "name": "findyourmeal",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "start": "npm install && next start",
     "lint": "next lint"
   },
   "dependencies": {
